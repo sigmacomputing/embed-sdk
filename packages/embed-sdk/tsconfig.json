@@ -1,0 +1,9 @@
+{
+  "extends": "../config-typescript/base.json",
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "outDir": "./dist"
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
+}

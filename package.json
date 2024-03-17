@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "Embed SDK Monorepo",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "prepublish": "turbo run build",
+    "publish": "npm publish --workspaces",
+    "build": "turbo run build",
+    "clean": "turbo run clean",
+    "dev": "turbo run dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "typecheck": "turbo run typecheck",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sigmacomputing",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "tsup": "^8.0.2",
+    "turbo": "^1.12.4",
+    "typescript": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

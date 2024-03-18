@@ -6,9 +6,12 @@ import {
   workbookLoadedListener,
 } from "@sigmacomputing/embed-sdk";
 
+export type OnLoaded = (event: WorkbookLoadedEvent) => void;
+export type OnError = (event: WorkbookErrorEvent) => void;
+
 export function useWorkbookLoaded(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onLoaded: (event: WorkbookLoadedEvent) => void,
+  onLoaded: OnLoaded,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {
@@ -24,7 +27,7 @@ export function useWorkbookLoaded(
 
 export function useWorkbookError(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onError: (event: WorkbookErrorEvent) => void,
+  onError: OnError,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {

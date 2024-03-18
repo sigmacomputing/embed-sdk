@@ -1,5 +1,5 @@
 {
-  "extends": "../config-typescript/base.json",
+  "extends": "@sigmacomputing/typescript-config/base.json",
   "compilerOptions": {
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "outDir": "./dist"

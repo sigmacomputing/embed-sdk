@@ -18,5 +18,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "devDependencies": {
+    "@sigmacomputing/typescript-config": "*"
+  }
 }

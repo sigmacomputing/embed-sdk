@@ -1,6 +1,6 @@
 {
   "name": "@sigmacomputing/react-embed-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React JavaScript SDK to interact with Sigma Computing's Embed API",
   "scripts": {
     "prepublish": "npm run build",
@@ -28,6 +28,6 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@sigmacomputing/embed-sdk": "workspace:*"
+    "@sigmacomputing/embed-sdk": "^0.2.0"
   }
 }

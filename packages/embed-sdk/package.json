@@ -3,7 +3,7 @@
   "version": "0.2.3",
   "description": "JavaScript SDK to interact with Sigma Computing's Embed API",
   "scripts": {
-    "prepublish": "npm run build",
+    "prepublish": "pnpm run build",
     "build": "tsup",
     "watch": "tsup --watch",
     "typecheck": "tsc --noEmit",
@@ -20,6 +20,6 @@
     "dist"
   ],
   "devDependencies": {
-    "@sigmacomputing/typescript-config": "*"
+    "@sigmacomputing/typescript-config": "workspace:*"
   }
 }

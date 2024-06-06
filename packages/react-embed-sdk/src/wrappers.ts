@@ -1,13 +1,44 @@
-import {
+import type {
   WorkbookLoadedEvent,
   WorkbookErrorEvent,
+  WorkbookDataLoadedEvent,
+  WorkbookVariableOnChangeEvent,
+  WorkbookTableCellSelectEvent,
+  WorkbookPublishedEvent,
+  WorkbookFullScreenEvent,
+  WorkbookPageHeightEvent,
+  WorkbookChartValueSelectEvent,
+  WorkbookPageSelectedNodeEvent,
+  WorkbookPivotTableCellSelectEvent,
+  WorkbookBookmarkCreateEvent,
+  WorkbookCurrentVariablesEvent,
+  WorkbookChartErrorEvent,
+  WorkbookExploreKeyOnChangeEvent,
+  WorkbookBookmarkOnChangeEvent,
+  UrlOnChangeEvent,
+  WorkbookIdOnChangeEvent,
+} from "@sigmacomputing/embed-sdk";
+import {
   workbookLoadedListener,
   workbookErrorListener,
+  workbookDataLoadedListener,
+  workbookVariableListener,
+  workbookTableCellSelectListener,
+  workbookPublishedListener,
+  workbookFullScreenListener,
+  workbookPageHeightListener,
+  workbookChartValueSelectListener,
+  workbookPageSelectedNodeListener,
+  workbookPivotTableCellSelectListener,
+  workbookBookmarkCreateListener,
+  workbookCurrentVariablesListener,
+  workbookChartErrorListener,
+  workbookExploreKeyOnChangeListener,
+  workbookBookmarkOnChangeListener,
+  urlOnChangeListener,
+  workbookIdOnChangeListener,
 } from "@sigmacomputing/embed-sdk";
 import { useEffect } from "react";
-
-export type OnLoaded = (event: WorkbookLoadedEvent) => void;
-export type OnError = (event: WorkbookErrorEvent) => void;
 
 /**
  * Listen for a workbook loaded event, and execute the given callback when it occurs.
@@ -32,7 +63,7 @@ export type OnError = (event: WorkbookErrorEvent) => void;
  */
 export function useWorkbookLoaded(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onLoaded: OnLoaded,
+  onLoaded: (event: WorkbookLoadedEvent) => void,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {
@@ -70,7 +101,7 @@ export function useWorkbookLoaded(
  */
 export function useWorkbookError(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onError: OnError,
+  onError: (event: WorkbookErrorEvent) => void,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {
@@ -101,20 +132,291 @@ export function useWorkbookError(
  *   );
  * }
  * ```
- *
  */
-// export function useWorkbookDataLoaded(
-//   iframeRef: React.RefObject<HTMLIFrameElement>,
-//   onDataLoaded: () => void,
-// ) {
-//   useEffect(() => {
-//     const listener = (event: MessageEvent) => {
-//       if (!iframeRef.current) {
-//         return;
-//       }
-//       workbookDataLoadedListener(event, iframeRef.current, onDataLoaded);
-//     };
-//     window.addEventListener("message", listener);
-//     return () => window.removeEventListener("message", listener);
-//   }, [iframeRef, onDataLoaded]);
-// }
+export function useWorkbookDataLoaded(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onDataLoaded: (event: WorkbookDataLoadedEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookDataLoadedListener(event, iframeRef.current, onDataLoaded);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onDataLoaded]);
+}
+
+export function useVariableChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onVariableChange: (event: WorkbookVariableOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookVariableListener(event, iframeRef.current, onVariableChange);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onVariableChange]);
+}
+
+export function useTableCellSelect(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onTableCellSelect: (event: WorkbookTableCellSelectEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookTableCellSelectListener(
+        event,
+        iframeRef.current,
+        onTableCellSelect,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onTableCellSelect]);
+}
+
+export function useWorkbookPublished(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onWorkbookPublished: (event: WorkbookPublishedEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookPublishedListener(event, iframeRef.current, onWorkbookPublished);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onWorkbookPublished]);
+}
+
+export function useWorkbookFullScreen(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onFullScreen: (event: WorkbookFullScreenEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookFullScreenListener(event, iframeRef.current, onFullScreen);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onFullScreen]);
+}
+
+export function useWorkbookPageHeight(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onPageHeight: (event: WorkbookPageHeightEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookPageHeightListener(event, iframeRef.current, onPageHeight);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onPageHeight]);
+}
+
+export function useWorkbookPageSelectedNode(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onPageSelectedNode: (event: WorkbookPageSelectedNodeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookPageSelectedNodeListener(
+        event,
+        iframeRef.current,
+        onPageSelectedNode,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onPageSelectedNode]);
+}
+
+export function useWorkbookPivotTableCellSelect(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onPivotTableCellSelect: (event: WorkbookPivotTableCellSelectEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookPivotTableCellSelectListener(
+        event,
+        iframeRef.current,
+        onPivotTableCellSelect,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onPivotTableCellSelect]);
+}
+
+export function useWorkbookChartValueSelect(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onChartValueSelect: (event: WorkbookChartValueSelectEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookChartValueSelectListener(
+        event,
+        iframeRef.current,
+        onChartValueSelect,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onChartValueSelect]);
+}
+
+export function useWorkbookCurrentVariables(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onCurrentVariables: (event: WorkbookCurrentVariablesEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookCurrentVariablesListener(
+        event,
+        iframeRef.current,
+        onCurrentVariables,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onCurrentVariables]);
+}
+
+export function useWorkbookBookmarkOnCreate(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onBookmarkCreate: (event: WorkbookBookmarkCreateEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookBookmarkCreateListener(
+        event,
+        iframeRef.current,
+        onBookmarkCreate,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onBookmarkCreate]);
+}
+
+export function useWorkbookChartError(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onChartError: (event: WorkbookChartErrorEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookChartErrorListener(event, iframeRef.current, onChartError);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onChartError]);
+}
+
+export function useWorkbookExploreKeyOnChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onExploreKeyChange: (event: WorkbookExploreKeyOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookExploreKeyOnChangeListener(
+        event,
+        iframeRef.current,
+        onExploreKeyChange,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onExploreKeyChange]);
+}
+
+export function useWorkbookBookmarkOnChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookBookmarkOnChangeListener(
+        event,
+        iframeRef.current,
+        onBookmarkChange,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onBookmarkChange]);
+}
+
+export function useUrlOnChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onUrlChange: (event: UrlOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      urlOnChangeListener(event, iframeRef.current, onUrlChange);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onUrlChange]);
+}
+
+export function useWorkbookIdOnChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onIdChange: (event: WorkbookIdOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookIdOnChangeListener(event, iframeRef.current, onIdChange);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onIdChange]);
+}

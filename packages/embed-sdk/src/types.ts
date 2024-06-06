@@ -43,7 +43,8 @@ export type ChartValues_t = ChartValue_t[];
 
 export const WorkbookLoadedEventName = "workbook:loaded" as const;
 export const WorkbookErrorEventName = "workbook:error" as const;
-export const WorkbookVariableEventName = "workbook:variables:onchange" as const;
+export const WorkbookVariableEventOnChangeName =
+  "workbook:variables:onchange" as const;
 export const WorkbookTableCellSelectEventName =
   "workbook:table:oncellselect" as const;
 export const WorkbookPublishedEventName = "workbook:published" as const;
@@ -83,8 +84,8 @@ export interface WorkbookErrorEvent {
   message: string;
 }
 
-export interface WorkbookVariableEvent {
-  type: typeof WorkbookVariableEventName;
+export interface WorkbookVariableOnChangeEvent {
+  type: typeof WorkbookVariableEventOnChangeName;
   variables: Record<string, string>;
 }
 

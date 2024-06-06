@@ -3,7 +3,10 @@
 // be nice to see most functions auto generated but some
 // hand generated for better abstraction.
 
-import { WorkbookErrorEvent } from "@sigmacomputing/embed-sdk";
+import type {
+  WorkbookErrorEvent,
+  WorkbookLoadedEvent,
+} from "@sigmacomputing/embed-sdk";
 import { useCallback, useRef, useState } from "react";
 import { useWorkbookLoaded, useWorkbookError } from "./wrappers";
 
@@ -31,13 +34,17 @@ import { useWorkbookLoaded, useWorkbookError } from "./wrappers";
 export function useSigmaIframe() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [loading, setLoading] = useState(true);
+  const [variables, setVariables] = useState<Record<string, string> | null>();
   const [error, setError] = useState<WorkbookErrorEvent | null>(null);
-  const loadingCallback = useCallback(() => setLoading(false), []);
+  const loadingCallback = useCallback((event: WorkbookLoadedEvent) => {
+    setLoading(false);
+    setVariables(event.workbook.variables);
+  }, []);
   const errorCallback = useCallback((event: WorkbookErrorEvent) => {
     setError(event);
     setLoading(false);
   }, []);
   useWorkbookLoaded(iframeRef, loadingCallback);
   useWorkbookError(iframeRef, errorCallback);
-  return { iframeRef, loading, error };
+  return { iframeRef, loading, error, variables };
 }

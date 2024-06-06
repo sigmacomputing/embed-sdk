@@ -3,5 +3,7 @@ packages:
   - "packages/*"
   # all packages in subdirs of components/
   - "examples/*"
+  # all packages in subdirs of tooling/
+  - "tooling/*"
   # exclude packages that are inside test directories
   - "!**/test/**"

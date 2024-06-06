@@ -21,10 +21,12 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "tsup": "^8.0.2",
-    "turbo": "^1.13.4",
+    "turbo": "^2.0.1",
     "typescript": "^5.4.2"
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "npm@10.5.0",
+  "name": "embed-sdk"
 }

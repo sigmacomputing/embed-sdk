@@ -25,7 +25,7 @@ importers:
     devDependencies:
       '@sigmacomputing/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../tooling/typescript-config
 
   packages/react-embed-sdk:
     dependencies:
@@ -35,7 +35,7 @@ importers:
     devDependencies:
       '@sigmacomputing/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../tooling/typescript-config
       '@types/react':
         specifier: ^18.2.66
         version: 18.2.66
@@ -46,7 +46,7 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
-  packages/typescript-config: {}
+  tooling/typescript-config: {}
 
 packages:
 

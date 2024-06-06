@@ -15,6 +15,26 @@ import {
   WorkbookPageHeightEvent,
   WorkbookPageSelectedNodeEvent,
   WorkbookPageSelectedNodeEventName,
+  WorkbookPivotTableCellSelectEvent,
+  WorkbookPivotTableCellSelectEventName,
+  WorkbookChartValueSelectEvent,
+  WorkbookChartValueSelectEventName,
+  WorkbookCurrentVariablesEvent,
+  WorkbookCurrentVariablesEventName,
+  WorkbookBookmarkCreateEvent,
+  WorkbookBookmarkCreateEventName,
+  WorkbookDataLoadedEvent,
+  WorkbookDataLoadedEventName,
+  WorkbookChartErrorEvent,
+  WorkbookChartErrorEventName,
+  WorkbookExploreKeyOnChangeEvent,
+  WorkbookExploreKeyOnChangeEventName,
+  WorkbookBookmarkOnChangeEvent,
+  WorkbookBookmarkOnChangeEventName,
+  UrlOnChangeEvent,
+  UrlOnChangeEventName,
+  WorkbookIdOnChangeEvent,
+  WorkbookIdOnChangeEventName,
 } from "./types";
 
 export const workbookLoadedListener = (
@@ -133,6 +153,155 @@ export const workbookPageSelectedNodeListener = (
   ) {
     if (event.data.type === WorkbookPageSelectedNodeEventName) {
       onPageSelectedNode(event.data);
+    }
+  }
+};
+
+export const workbookPivotTableCellSelectListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onPivotTableCellSelect: (event: WorkbookPivotTableCellSelectEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookPivotTableCellSelectEventName) {
+      onPivotTableCellSelect(event.data);
+    }
+  }
+};
+
+export const workbookChartValueSelectListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onChartValueSelect: (event: WorkbookChartValueSelectEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookChartValueSelectEventName) {
+      onChartValueSelect(event.data);
+    }
+  }
+};
+
+export const workbookCurrentVariablesListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onCurrentVariables: (event: WorkbookCurrentVariablesEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookCurrentVariablesEventName) {
+      onCurrentVariables(event.data);
+    }
+  }
+};
+
+export const workbookBookmarkCreateListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onBookmarkCreate: (event: WorkbookBookmarkCreateEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookBookmarkCreateEventName) {
+      onBookmarkCreate(event.data);
+    }
+  }
+};
+export const workbookDataLoadedListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onWorkbookDataLoaded: (event: WorkbookDataLoadedEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookDataLoadedEventName) {
+      onWorkbookDataLoaded(event.data);
+    }
+  }
+};
+
+export const workbookChartErrorListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onChartError: (event: WorkbookChartErrorEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookChartErrorEventName) {
+      onChartError(event.data);
+    }
+  }
+};
+
+export const workbookExploreKeyOnChangeListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onExploreKeyOnChange: (event: WorkbookExploreKeyOnChangeEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookExploreKeyOnChangeEventName) {
+      onExploreKeyOnChange(event.data);
+    }
+  }
+};
+
+export const workbookBookmarkOnChangeListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookBookmarkOnChangeEventName) {
+      onBookmarkChange(event.data);
+    }
+  }
+};
+
+export const urlOnChangeListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onUrlChange: (event: UrlOnChangeEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === UrlOnChangeEventName) {
+      onUrlChange(event.data);
+    }
+  }
+};
+
+export const workbookIdOnChangeListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onWorkbookIdChange: (event: WorkbookIdOnChangeEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookIdOnChangeEventName) {
+      onWorkbookIdChange(event.data);
     }
   }
 };

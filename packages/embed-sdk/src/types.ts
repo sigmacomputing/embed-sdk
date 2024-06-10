@@ -60,7 +60,7 @@ export const WorkbookChartValueSelectEventName =
   "workbook:chart:onvalueselect" as const;
 export const WorkbookCurrentVariablesEventName =
   "workbook:variables:current" as const;
-export const WorkbookBookmarkCreateEventName =
+export const WorkbookBookmarkOnCreateEventName =
   "workbook:bookmark:oncreate" as const;
 export const WorkbookDataLoadedEventName = "workbook:dataloaded" as const;
 export const WorkbookChartErrorEventName = "workbook:chart:error" as const;
@@ -70,7 +70,15 @@ export const WorkbookBookmarkOnChangeEventName =
   "workbook:bookmark:onchange" as const;
 export const UrlOnChangeEventName = "url:onchange" as const;
 export const WorkbookIdOnChangeEventName = "workbook:id:onchange" as const;
+export const WorkbookBookmarkCreateEventName =
+  "workbook:bookmark:create" as const;
+export const WorkbookBookmarkUpdateEventName =
+  "workbook:bookmark:update" as const;
+export const WorkbookFullscreenUpdateEventName =
+  "workbook:fullscreen:update" as const;
 
+export const WorkbookSelectedNodeIdUpdateEventName =
+  "workbook:selectednodeid:update" as const;
 export interface WorkbookLoadedEvent {
   type: typeof WorkbookLoadedEventName;
   workbook: {
@@ -132,8 +140,8 @@ export type WorkbookCurrentVariablesEvent = {
   variables: Record<string, string>;
 };
 
-export type WorkbookBookmarkCreateEvent = {
-  type: typeof WorkbookBookmarkCreateEventName;
+export type WorkbookBookmarkCreateOnEvent = {
+  type: typeof WorkbookBookmarkOnCreateEventName;
   bookmarkName: string;
   workbookId: string;
   versionTagName: string | null;
@@ -172,4 +180,10 @@ export type UrlOnChangeEvent = {
 export type WorkbookIdOnChangeEvent = {
   type: typeof WorkbookIdOnChangeEventName;
   id: string;
+};
+
+export type WorkbookBookmarkCreateEvent = {
+  name: string;
+  isDefault: boolean;
+  isShared: boolean;
 };

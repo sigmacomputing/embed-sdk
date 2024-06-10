@@ -21,6 +21,7 @@ import { useWorkbookPageHeight } from "./wrappers";
  *   </>
  * );
  * }
+ * ```
  */
 export function usePageHeight(
   iframeRef: React.RefObject<HTMLIFrameElement>,

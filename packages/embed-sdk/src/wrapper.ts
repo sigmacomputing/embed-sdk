@@ -21,7 +21,7 @@ import {
   WorkbookChartValueSelectEventName,
   WorkbookCurrentVariablesEvent,
   WorkbookCurrentVariablesEventName,
-  WorkbookBookmarkCreateOnEvent,
+  WorkbookBookmarkOnCreateEvent,
   WorkbookBookmarkOnCreateEventName,
   WorkbookDataLoadedEvent,
   WorkbookDataLoadedEventName,
@@ -205,7 +205,7 @@ export const workbookCurrentVariablesListener = (
 export const workbookBookmarkCreateListener = (
   event: MessageEvent,
   iframe: HTMLIFrameElement,
-  onBookmarkCreate: (event: WorkbookBookmarkCreateOnEvent) => void,
+  onBookmarkCreate: (event: WorkbookBookmarkOnCreateEvent) => void,
 ) => {
   if (
     event.source === iframe.contentWindow &&

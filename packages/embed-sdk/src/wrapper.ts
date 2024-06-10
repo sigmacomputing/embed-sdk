@@ -21,8 +21,8 @@ import {
   WorkbookChartValueSelectEventName,
   WorkbookCurrentVariablesEvent,
   WorkbookCurrentVariablesEventName,
-  WorkbookBookmarkCreateEvent,
-  WorkbookBookmarkCreateEventName,
+  WorkbookBookmarkCreateOnEvent,
+  WorkbookBookmarkOnCreateEventName,
   WorkbookDataLoadedEvent,
   WorkbookDataLoadedEventName,
   WorkbookChartErrorEvent,
@@ -205,13 +205,13 @@ export const workbookCurrentVariablesListener = (
 export const workbookBookmarkCreateListener = (
   event: MessageEvent,
   iframe: HTMLIFrameElement,
-  onBookmarkCreate: (event: WorkbookBookmarkCreateEvent) => void,
+  onBookmarkCreate: (event: WorkbookBookmarkCreateOnEvent) => void,
 ) => {
   if (
     event.source === iframe.contentWindow &&
     event.origin === "https://staging.sigmacomputing.io"
   ) {
-    if (event.data.type === WorkbookBookmarkCreateEventName) {
+    if (event.data.type === WorkbookBookmarkOnCreateEventName) {
       onBookmarkCreate(event.data);
     }
   }

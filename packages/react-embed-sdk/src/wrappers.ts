@@ -10,13 +10,13 @@ import type {
   WorkbookChartValueSelectEvent,
   WorkbookPageSelectedNodeEvent,
   WorkbookPivotTableCellSelectEvent,
-  WorkbookBookmarkCreateEvent,
   WorkbookCurrentVariablesEvent,
   WorkbookChartErrorEvent,
   WorkbookExploreKeyOnChangeEvent,
   WorkbookBookmarkOnChangeEvent,
   UrlOnChangeEvent,
   WorkbookIdOnChangeEvent,
+  WorkbookBookmarkOnCreateEvent,
 } from "@sigmacomputing/embed-sdk";
 import {
   workbookLoadedListener,
@@ -315,7 +315,7 @@ export function useWorkbookCurrentVariables(
 
 export function useWorkbookBookmarkOnCreate(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onBookmarkCreate: (event: WorkbookBookmarkCreateEvent) => void,
+  onBookmarkCreate: (event: WorkbookBookmarkOnCreateEvent) => void,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {

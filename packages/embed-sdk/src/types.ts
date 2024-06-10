@@ -140,7 +140,7 @@ export type WorkbookCurrentVariablesEvent = {
   variables: Record<string, string>;
 };
 
-export type WorkbookBookmarkCreateOnEvent = {
+export type WorkbookBookmarkOnCreateEvent = {
   type: typeof WorkbookBookmarkOnCreateEventName;
   bookmarkName: string;
   workbookId: string;

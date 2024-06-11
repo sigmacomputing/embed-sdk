@@ -22,7 +22,7 @@ import {
   workbookLoadedListener,
   workbookErrorListener,
   workbookDataLoadedListener,
-  workbookVariableListener,
+  workbookVariableChangeListener,
   workbookTableCellSelectListener,
   workbookPublishedListener,
   workbookFullScreenListener,
@@ -158,7 +158,11 @@ export function useVariableChange(
       if (!iframeRef.current) {
         return;
       }
-      workbookVariableListener(event, iframeRef.current, onVariableChange);
+      workbookVariableChangeListener(
+        event,
+        iframeRef.current,
+        onVariableChange,
+      );
     };
     window.addEventListener("message", listener);
     return () => window.removeEventListener("message", listener);

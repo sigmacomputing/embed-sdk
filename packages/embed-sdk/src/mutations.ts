@@ -4,6 +4,8 @@ import {
   WorkbookBookmarkUpdateEventName,
   WorkbookFullscreenUpdateEventName,
   WorkbookSelectedNodeIdUpdateEventName,
+  WorkbookVariablesListEventName,
+  WorkbookVariablesUpdateEventName,
 } from "./types";
 
 const sendIframeMessage = (
@@ -54,5 +56,21 @@ export const workbookSelectedNodeIdUpdate = (
     type: WorkbookSelectedNodeIdUpdateEventName,
     nodeId: nodeId,
     nodeType: nodeType,
+  });
+};
+
+export const workbookVariablesList = (iframe: HTMLIFrameElement) => {
+  sendIframeMessage(iframe, {
+    type: WorkbookVariablesListEventName,
+  });
+};
+
+export const workbookVariablesUpdate = (
+  iframe: HTMLIFrameElement,
+  variables: Record<string, string>,
+) => {
+  sendIframeMessage(iframe, {
+    type: WorkbookVariablesUpdateEventName,
+    variables: variables,
   });
 };

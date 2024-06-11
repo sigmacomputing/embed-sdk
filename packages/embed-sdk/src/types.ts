@@ -65,7 +65,7 @@ export const WorkbookBookmarkOnCreateEventName =
 export const WorkbookDataLoadedEventName = "workbook:dataloaded" as const;
 export const WorkbookChartErrorEventName = "workbook:chart:error" as const;
 export const WorkbookExploreKeyOnChangeEventName =
-  "workbook:explorekey:onchange" as const;
+  "workbook:exploreKey:onchange" as const;
 export const WorkbookBookmarkOnChangeEventName =
   "workbook:bookmark:onchange" as const;
 export const UrlOnChangeEventName = "url:onchange" as const;
@@ -79,6 +79,16 @@ export const WorkbookFullscreenUpdateEventName =
 
 export const WorkbookSelectedNodeIdUpdateEventName =
   "workbook:selectednodeid:update" as const;
+
+export const WorkbookVariablesListEventName =
+  "workbook:variables:list" as const;
+
+export const WorkbookVariablesUpdateEventName =
+  "workbook:variables:update" as const;
+
+export const WorkbookVariablesCurrentEventName =
+  "workbook:variables:current" as const;
+
 export interface WorkbookLoadedEvent {
   type: typeof WorkbookLoadedEventName;
   workbook: {
@@ -94,6 +104,11 @@ export interface WorkbookErrorEvent {
 
 export interface WorkbookVariableOnChangeEvent {
   type: typeof WorkbookVariableEventOnChangeName;
+  variables: Record<string, string>;
+}
+
+export interface WorkbookVariableCurrentEvent {
+  type: typeof WorkbookVariablesCurrentEventName;
   variables: Record<string, string>;
 }
 

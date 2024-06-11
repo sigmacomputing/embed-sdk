@@ -35,6 +35,8 @@ import {
   UrlOnChangeEventName,
   WorkbookIdOnChangeEvent,
   WorkbookIdOnChangeEventName,
+  WorkbookVariableCurrentEvent,
+  WorkbookVariablesCurrentEventName,
 } from "./types";
 
 export const workbookLoadedListener = (
@@ -67,7 +69,7 @@ export const workbookErrorListener = (
   }
 };
 
-export const workbookVariableListener = (
+export const workbookVariableChangeListener = (
   event: MessageEvent,
   iframe: HTMLIFrameElement,
   onVariable: (event: WorkbookVariableOnChangeEvent) => void,
@@ -77,6 +79,21 @@ export const workbookVariableListener = (
     event.origin === "https://staging.sigmacomputing.io"
   ) {
     if (event.data.type === WorkbookVariableEventOnChangeName) {
+      onVariable(event.data);
+    }
+  }
+};
+
+export const workbookVariableCurrentListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onVariable: (event: WorkbookVariableCurrentEvent) => void,
+) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.origin === "https://staging.sigmacomputing.io"
+  ) {
+    if (event.data.type === WorkbookVariablesCurrentEventName) {
       onVariable(event.data);
     }
   }

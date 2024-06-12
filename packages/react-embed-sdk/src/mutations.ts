@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   workbookVariablesList,
   workbookCurrentVariablesListener,
+  workbookVariablesUpdate,
 } from "@sigmacomputing/embed-sdk";
 
 type CallBackState =
@@ -14,19 +15,48 @@ type CallBackState =
       variables: Record<string, string>;
     };
 
+/**
+ * A hook that returns functions to get and set the variables in a workbook.
+ * @example
+ * ```
+ * function MyEmbed() {
+ *   const { getVariables, setVariables } = useWorkbookVariables(iframeRef);
+ *   return (
+ *    <>
+ *     <button onClick={() => setVariables({ foo: "bar" })}>Set Variables</button>
+ *     <button onClick={() => const variable = await getVariables(}>Get Variables</button>
+ *     <iframe
+ *       ref={iframeRef}
+ *       src="https://app.sigmacomputing.com/embed"
+ *     />
+ *    <>
+ *   );
+ * }
+ * ```
+ */
 export const useWorkbookVariables = (
   iframeRef: React.RefObject<HTMLIFrameElement>,
 ) => {
   const [state, setState] = useState<CallBackState>();
-  const getCurrentVariables = (
-    onVariables: (variables: Record<string, string>) => void,
-  ) => {
+  const getVariables = useCallback(() => {
     if (!iframeRef.current) {
-      throw new Error("iframe contentWindow is not available");
+      throw new Error("iframe is not available");
     }
     workbookVariablesList(iframeRef.current);
-    setState({ state: "pending", callback: onVariables });
-  };
+    const promise = new Promise((resolve) => {
+      setState({ state: "pending", callback: resolve });
+    });
+    return promise;
+  }, [iframeRef]);
+  const setVariables = useCallback(
+    (variables: Record<string, string>) => {
+      if (!iframeRef.current) {
+        throw new Error("iframe is not available");
+      }
+      workbookVariablesUpdate(iframeRef.current, variables);
+    },
+    [iframeRef],
+  );
   useEffect(() => {
     if (!iframeRef.current) return;
     const listener = (event: MessageEvent) => {
@@ -45,5 +75,8 @@ export const useWorkbookVariables = (
       window.removeEventListener("message", listener);
     };
   }, [iframeRef]);
-  return { getCurrentVariables };
+  return {
+    getVariables,
+    setVariables,
+  };
 };

@@ -74,7 +74,7 @@ export const useWorkbookVariables = (
     return () => {
       window.removeEventListener("message", listener);
     };
-  }, [iframeRef]);
+  }, [iframeRef, state]);
   return {
     getVariables,
     setVariables,

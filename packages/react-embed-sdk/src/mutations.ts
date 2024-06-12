@@ -24,7 +24,7 @@ type CallBackState =
  *   return (
  *    <>
  *     <button onClick={() => setVariables({ foo: "bar" })}>Set Variables</button>
- *     <button onClick={() => const variable = await getVariables(}>Get Variables</button>
+ *     <button onClick={() => const variable = await getVariables()}>Get Variables</button>
  *     <iframe
  *       ref={iframeRef}
  *       src="https://app.sigmacomputing.com/embed"

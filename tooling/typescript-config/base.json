@@ -18,7 +18,9 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "target": "ES2022"
   },
   "exclude": ["node_modules"]
 }

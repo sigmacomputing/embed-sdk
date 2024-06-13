@@ -6,6 +6,7 @@
     "prepublish": "pnpm build",
     "build": "tsup",
     "dev": "tsup --watch",
+    "lint": "eslint . --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sigmacomputing",
@@ -23,6 +24,7 @@
     "react-dom": "^16.8 || ^17 || ^18"
   },
   "devDependencies": {
+    "@sigmacomputing/eslint-config": "workspace:*",
     "@sigmacomputing/typescript-config": "workspace:*",
     "@types/react": "^18.2.66",
     "react": "^18.2.0",

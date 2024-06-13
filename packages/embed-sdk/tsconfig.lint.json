@@ -1,5 +1,5 @@
 {
-  "extends": "@sigmacomputing/typescript-config/react-library.json",
+  "extends": "@sigmacomputing/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist"
   },

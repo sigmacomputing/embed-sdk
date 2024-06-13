@@ -5,6 +5,7 @@
   "scripts": {
     "prepublish": "pnpm run build",
     "build": "tsup",
+    "lint": "eslint . --ext .ts",
     "watch": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"

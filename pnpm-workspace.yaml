@@ -5,5 +5,7 @@ packages:
   - "examples/*"
   # all packages in subdirs of tooling/
   - "tooling/*"
+  # all packages in subdirs of docs/
+  - "docs/*"
   # exclude packages that are inside test directories
   - "!**/test/**"

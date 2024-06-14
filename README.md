@@ -2,12 +2,28 @@
 
 Experimental SDK for Sigma Embeds. They are a wrapper over postmessage APIs.
 
-TODO:
+## Getting Started 
+This repo uses pnpm and node18+. To get started 
 
-- [ ] Create an example app in the Examples directory. This should be a comprehensive example of how to use the SDK.
-- [ ] Make the react hooks for all the APIs.
-- [ ] Add the JSDoc comments for all the APIs. We want to follow the format that I have in the react-sdk.
-- [ ] Setup a real publish flow and CI.
-- [ ] Automate the generation of SDKs instead of the manual work we do now. 
+```sh
+corepack enable
+pnpm i
+```
 
-For example usage look at [embed-dogfooding](https://github.com/sigmacomputing/embed-dogfooding/blob/main/components/sigma-embed.tsx)
+The repo uses turbo for its managenent. It currently hass 3 packages: 
+* embed-sdk: barebones wrappers over postMessages
+* react-emebed-sdk: React hooks to easily use the embed-sdk
+* docs: Some barebone documentation / examples.
+
+To build: 
+```
+pnpm run build
+```
+
+## Publish flow: 
+
+Merge changes to main. Checkout main locally. Then 
+```
+pnpm run publish
+```
+

@@ -1,4 +1,4 @@
-export type Value_t = Object | Date | boolean | number | string | null;
+export type Value_t = unknown;
 export enum CellType_t {
   Value = "valueCell",
   RowHeader = "rowHeader",

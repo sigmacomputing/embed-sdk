@@ -21,6 +21,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@sigmacomputing/eslint-config": "workspace:*",
     "@sigmacomputing/typescript-config": "workspace:*"
   }
 }

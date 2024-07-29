@@ -4,7 +4,7 @@
   "description": "Embed SDK Monorepo",
   "scripts": {
     "prepublish": "turbo run build",
-    "publish": "pnpm --filter './packages/**' publish ",
+    "release": "pnpm --filter './packages/**' publish ",
     "build": "turbo run build",
     "clean": "turbo run clean",
     "dev": "turbo run dev",
@@ -16,6 +16,7 @@
   "author": "sigmacomputing",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "prettier": "^3.3.3",
     "tsup": "^8.2.3",
     "turbo": "^2.0.9",

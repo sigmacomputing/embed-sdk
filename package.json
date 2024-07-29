@@ -16,6 +16,7 @@
   "author": "sigmacomputing",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.27.7",
     "prettier": "^3.3.3",
     "tsup": "^8.2.3",
     "turbo": "^2.0.9",

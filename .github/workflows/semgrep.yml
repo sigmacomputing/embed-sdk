@@ -11,6 +11,7 @@ jobs:
     container:
       # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
+    if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v4
       - run: semgrep ci

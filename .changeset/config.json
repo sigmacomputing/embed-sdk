@@ -7,5 +7,6 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@sigmacomputing/basic-examples"]
+  "ignore": ["@sigmacomputing/basic-examples"],
+  "privatePackages": false
 }

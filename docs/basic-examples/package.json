@@ -1,5 +1,5 @@
 {
-  "name": "basic-examples",
+  "name": "@sigmacomputing/basic-examples",
   "version": "0.1.0",
   "private": true,
   "scripts": {

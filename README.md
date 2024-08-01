@@ -32,3 +32,8 @@ pnpm changeset
 ```
 
 This will prompt you to add a changeset. Once merged, a PR will be opened to bump the version and publish the package.
+
+## Add iframe events
+
+- [Example](https://github.com/sigmacomputing/embed-sdk/pull/31) for adding an inbound event
+- Add a changeset for both the embed-sdk and react-embed-sdk.

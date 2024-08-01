@@ -6,6 +6,7 @@ import {
   workbookFullscreenUpdate,
   workbookSelectedNodeIdUpdate,
   WorkbookBookmarkCreateEvent,
+  workbookSharingLinkUpdate,
 } from "@sigmacomputing/embed-sdk";
 
 export function getWorkbookVariables(
@@ -65,4 +66,19 @@ export function updateWorkbookSelectedNodeId(
     throw new Error("iframe is not available");
   }
   workbookSelectedNodeIdUpdate(iframeRef.current, nodeId, nodeType);
+}
+
+export function updateWorkbookSharingLink(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  sharingLink: string | null,
+  sharingExplorationLink: string | null,
+) {
+  if (!iframeRef.current) {
+    throw new Error("iframe is not available");
+  }
+  workbookSharingLinkUpdate(
+    iframeRef.current,
+    sharingLink,
+    sharingExplorationLink,
+  );
 }

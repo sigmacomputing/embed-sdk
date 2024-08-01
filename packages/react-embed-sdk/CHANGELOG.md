@@ -1,5 +1,12 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [f3fb6a3]
+  - @sigmacomputing/embed-sdk@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes

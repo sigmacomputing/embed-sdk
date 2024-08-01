@@ -89,6 +89,9 @@ export const WorkbookVariablesUpdateEventName =
 export const WorkbookVariablesCurrentEventName =
   "workbook:variables:current" as const;
 
+export const WorkbookSharingLinkUpdateEventName =
+  "workbook:sharinglink:update" as const;
+
 export interface WorkbookLoadedEvent {
   type: typeof WorkbookLoadedEventName;
   workbook: {
@@ -109,6 +112,11 @@ export interface WorkbookVariableOnChangeEvent {
 
 export interface WorkbookVariableCurrentEvent {
   type: typeof WorkbookVariablesCurrentEventName;
+  variables: Record<string, string>;
+}
+
+export interface WorkbookSharingLinkUpdateEvent {
+  type: typeof WorkbookSharingLinkUpdateEventName;
   variables: Record<string, string>;
 }
 

@@ -35,6 +35,8 @@ import {
   UrlOnChangeEventName,
   WorkbookIdOnChangeEvent,
   WorkbookIdOnChangeEventName,
+  WorkbookSharingLinkUpdateEvent,
+  WorkbookSharingLinkUpdateEventName,
   WorkbookVariableCurrentEvent,
   WorkbookVariablesCurrentEventName,
 } from "./types";
@@ -89,6 +91,18 @@ export const workbookVariableCurrentListener = (
 ) => {
   if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
     if (event.data.type === WorkbookVariablesCurrentEventName) {
+      onVariable(event.data);
+    }
+  }
+};
+
+export const workbookLinkSharingUpdateListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onVariable: (event: WorkbookSharingLinkUpdateEvent) => void,
+) => {
+  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
+    if (event.data.type === WorkbookSharingLinkUpdateEventName) {
       onVariable(event.data);
     }
   }

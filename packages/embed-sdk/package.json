@@ -1,6 +1,6 @@
 {
   "name": "@sigmacomputing/embed-sdk",
-  "version": "0.2.11",
+  "version": "0.3.0",
   "description": "JavaScript SDK to interact with Sigma Computing's Embed API",
   "scripts": {
     "prepublish": "pnpm run build",

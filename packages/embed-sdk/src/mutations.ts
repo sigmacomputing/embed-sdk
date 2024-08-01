@@ -4,6 +4,7 @@ import {
   WorkbookBookmarkUpdateEventName,
   WorkbookFullscreenUpdateEventName,
   WorkbookSelectedNodeIdUpdateEventName,
+  WorkbookSharingLinkUpdateEventName,
   WorkbookVariablesListEventName,
   WorkbookVariablesUpdateEventName,
 } from "./types";
@@ -72,5 +73,17 @@ export const workbookVariablesUpdate = (
   sendIframeMessage(iframe, {
     type: WorkbookVariablesUpdateEventName,
     variables: variables,
+  });
+};
+
+export const workbookSharingLinkUpdate = (
+  iframe: HTMLIFrameElement,
+  sharingLink: string | null,
+  sharingExplorationLink: string | null,
+) => {
+  sendIframeMessage(iframe, {
+    type: WorkbookSharingLinkUpdateEventName,
+    nodeId: sharingLink,
+    sharingExplorationLink: sharingExplorationLink,
   });
 };

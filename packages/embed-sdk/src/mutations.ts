@@ -83,7 +83,7 @@ export const workbookSharingLinkUpdate = (
 ) => {
   sendIframeMessage(iframe, {
     type: WorkbookSharingLinkUpdateEventName,
-    nodeId: sharingLink,
+    sharingLink: sharingLink,
     sharingExplorationLink: sharingExplorationLink,
   });
 };

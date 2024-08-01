@@ -1,5 +1,16 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- 29186e0: add updateWorkbookSharingLink
+
+### Patch Changes
+
+- Updated dependencies [29186e0]
+  - @sigmacomputing/embed-sdk@0.3.0
+
 ## 0.2.11
 
 ### Patch Changes

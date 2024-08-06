@@ -35,7 +35,10 @@ jobs:
       - name: create and publish versions
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          version: pnpm ci:version
+          publish: pnpm ci:release
+          title: "chore: publish new package versions"
+
         env:
           GITHUB_TOKEN: ${{ steps.create_token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

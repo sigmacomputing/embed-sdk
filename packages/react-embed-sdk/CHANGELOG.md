@@ -1,5 +1,13 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.3.2
+
+### Patch Changes
+
+- f7f8b56: Test changeset to see if wf works, will not be used
+- Updated dependencies [f7f8b56]
+  - @sigmacomputing/embed-sdk@0.3.2
+
 ## 0.3.1
 
 ### Patch Changes

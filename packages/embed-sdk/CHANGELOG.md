@@ -1,5 +1,11 @@
 # @sigmacomputing/embed-sdk
 
+## 0.3.2
+
+### Patch Changes
+
+- f7f8b56: Test changeset to see if wf works, will not be used
+
 ## 0.3.1
 
 ### Patch Changes

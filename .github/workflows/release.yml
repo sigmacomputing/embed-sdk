@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: create_token
-        uses: tibdex/github-app-token@v2
+        uses: actions/create-github-app-token@v1
         with:
-          app_id: ${{ secrets.EMBED_SDK_BOT_APP_ID }}
-          private_key: ${{ secrets.EMBED_SDK_BOT_TOKEN }}
+          app-id: ${{ secrets.EMBED_SDK_BOT_APP_ID }}
+          private-key: ${{ secrets.EMBED_SDK_BOT_TOKEN }}
 
       - name: checkout code repository
         uses: actions/checkout@v4

@@ -4,7 +4,8 @@
   "description": "Embed SDK Monorepo",
   "scripts": {
     "prepublish": "turbo run build",
-    "release": "pnpm --filter './packages/**' publish ",
+    "ci:release": "pnpm --filter './packages/**' publish ",
+    "ci:version": "pnpm exec changeset version && pnpm exec changeset tag",
     "build": "turbo run build",
     "clean": "turbo run clean",
     "dev": "turbo run dev",

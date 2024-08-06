@@ -3,4 +3,4 @@
 "@sigmacomputing/react-embed-sdk": patch
 ---
 
-Test changeset to see if wf works, will not be used
+Test new changeset release flow.

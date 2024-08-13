@@ -44,23 +44,32 @@ npm install @sigmacomputing/react-embed-sdk
 ```
 
 **yarn:**
+```code
 yarn add @sigmacomputing/react-embed-sdk
+```
 
 **pnpm:**
 ```code
 pnpm add @sigmacomputing/react-embed-sdk
 ```
+
 ### For embed-sdk:
 For each package manager, use the following command:
 
 **Using npm:**
+```code
 npm install @sigmacomputing/embed-sdk
+```
 
 **yarn:**
+```code
 yarn add @sigmacomputing/embed-sdk
+```
 
 **pnpm:**
+```code
 pnpm add @sigmacomputing/embed-sdk
+```
 
 ## Publish flow:
 Publishes are handled by changesets. To add a changeset, in your PR run:

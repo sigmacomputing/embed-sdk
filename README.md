@@ -27,10 +27,40 @@ The repo uses turbo for its build system. It currently has 3 packages:
 - react-embed-sdk: React hooks to easily use the embed-sdk
 - docs: Some barebone documentation / examples.
 
-To build:
+**To build:**
 ```code
 pnpm run build
 ```
+
+## Using in Project
+To use the embed-sdk in your project, you can install it using your node package manager.
+
+### For react-embed-sdk:
+For each package manager, use the following command:
+
+**npm:**
+```code
+npm install @sigmacomputing/react-embed-sdk
+```
+
+**yarn:**
+yarn add @sigmacomputing/react-embed-sdk
+
+**pnpm:**
+```code
+pnpm add @sigmacomputing/react-embed-sdk
+```
+### For embed-sdk:
+For each package manager, use the following command:
+
+**Using npm:**
+npm install @sigmacomputing/embed-sdk
+
+**yarn:**
+yarn add @sigmacomputing/embed-sdk
+
+**pnpm:**
+pnpm add @sigmacomputing/embed-sdk
 
 ## Publish flow:
 Publishes are handled by changesets. To add a changeset, in your PR run:

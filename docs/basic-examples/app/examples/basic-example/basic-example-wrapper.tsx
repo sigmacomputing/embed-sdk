@@ -11,7 +11,7 @@ import BasicExample from "./basic-example-embed";
 export default async function SignedIframe() {
   // The base URL for the Sigma Computing dashboard or visualization to be embedded
    const src = "https://app.sigmacomputing.com/embed/2jRbZzf2xabnOdBvd3TPRE"; // Sigma provided 
-   // const src = "https://app.sigmacomputing.com/embed/1-2U701ZY50pdkiqFxD8iVpL"; // My Sigma instance
+   // const src = ""; // My Sigma instance
 
   try {
     // Await the signed URL by passing the base URL to the signEmbedUrl function

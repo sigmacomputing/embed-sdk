@@ -1,7 +1,7 @@
 # Sigma Embed-SDK for React
 Sigma provides several methods to allow users and developers to interact with its systems including web-ui, REST API, Javascript Embed API and an SDK for the React framework.
 
-The Embed-SDK for React provides an addition avenue, targeted at software developers who prefer to use a software development kit (SDK), as opposed to using the Sigmas JavaScript Embed-API, which can require writing additional code. 
+The Embed-SDK for React offers a higher-level, developer-friendly interface that simplifies integration into applications, in contrast to Sigma’s lower-level JavaScript Embed-API, which provides more granular control but may require additional coding
 
 If the basic instructions below are not sufficient, please review the [QuickStart here.](https://quickstarts.sigmacomputing.com/guide/embedding_15_embed_sdk/index.html?index=..%2F..index#0)
 

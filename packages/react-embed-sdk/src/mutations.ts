@@ -71,7 +71,7 @@ export function updateWorkbookSelectedNodeId(
 export function updateWorkbookSharingLink(
   iframeRef: React.RefObject<HTMLIFrameElement>,
   sharingLink: string | null,
-  sharingExplorationLink: string | null,
+  sharingExplorationLink?: string | null,
 ) {
   if (!iframeRef.current) {
     throw new Error("iframe is not available");

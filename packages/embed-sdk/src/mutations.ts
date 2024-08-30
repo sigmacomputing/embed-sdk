@@ -79,7 +79,7 @@ export const workbookVariablesUpdate = (
 export const workbookSharingLinkUpdate = (
   iframe: HTMLIFrameElement,
   sharingLink: string | null,
-  sharingExplorationLink: string | null,
+  sharingExplorationLink?: string | null,
 ) => {
   sendIframeMessage(iframe, {
     type: WorkbookSharingLinkUpdateEventName,

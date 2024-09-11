@@ -1,7 +1,23 @@
 {
   "name": "@sigmacomputing/react-embed-sdk",
+  "author": "sigmacomputing",
   "version": "0.3.2",
   "description": "React JavaScript SDK to interact with Sigma Computing's Embed API",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sigmacomputing/embed-sdk.git",
+    "directory": "packages/embed-sdk"
+  },
+  "homepage": "https://sigmacomputing.com",
+  "bugs": {
+    "url": "https://github.com/sigmacomputing/embed-sdk/issues"
+  },
+  "keywords": [
+    "embed",
+    "sdk",
+    "sigma"
+  ],
   "scripts": {
     "prepublish": "pnpm build",
     "build": "tsup",
@@ -9,8 +25,6 @@
     "lint": "eslint . --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "sigmacomputing",
-  "license": "ISC",
   "exports": {
     "import": "./dist/index.mjs",
     "require": "./dist/index.js",

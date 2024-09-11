@@ -7,7 +7,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sigmacomputing/embed-sdk.git",
-    "directory": "packages/embed-sdk"
+    "directory": "packages/react-embed-sdk"
   },
   "homepage": "https://sigmacomputing.com",
   "bugs": {
@@ -16,7 +16,8 @@
   "keywords": [
     "embed",
     "sdk",
-    "sigma"
+    "sigma",
+    "react"
   ],
   "scripts": {
     "prepublish": "pnpm build",

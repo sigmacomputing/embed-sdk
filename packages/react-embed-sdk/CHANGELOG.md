@@ -1,5 +1,15 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.3.3
+
+### Patch Changes
+
+- 52fb2af: Add the MIT license to repo
+- 953be8d: make sharingLinkExploration optional
+- Updated dependencies [52fb2af]
+- Updated dependencies [953be8d]
+  - @sigmacomputing/embed-sdk@0.3.3
+
 ## 0.3.2
 
 ### Patch Changes

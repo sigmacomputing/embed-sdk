@@ -1,5 +1,12 @@
 # @sigmacomputing/embed-sdk
 
+## 0.3.3
+
+### Patch Changes
+
+- 52fb2af: Add the MIT license to repo
+- 953be8d: make sharingLinkExploration optional
+
 ## 0.3.2
 
 ### Patch Changes

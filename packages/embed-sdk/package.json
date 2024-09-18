@@ -1,7 +1,7 @@
 {
   "name": "@sigmacomputing/embed-sdk",
   "author": "sigmacomputing",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "JavaScript SDK to interact with Sigma Computing's Embed API",
   "license": "MIT",
   "repository": {

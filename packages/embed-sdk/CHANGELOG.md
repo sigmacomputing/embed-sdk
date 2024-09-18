@@ -1,5 +1,11 @@
 # @sigmacomputing/embed-sdk
 
+## 0.4.0
+
+### Minor Changes
+
+- 05870e1: [BREAKING]: Renames WorkbookPageSelectedNode to WorkbookSelectedNode to be more accurate. Also adds a ReadMe in both packages.
+
 ## 0.3.3
 
 ### Patch Changes

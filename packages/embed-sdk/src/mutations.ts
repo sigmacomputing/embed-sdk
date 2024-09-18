@@ -11,7 +11,7 @@ import {
 
 const sendIframeMessage = (
   iframe: HTMLIFrameElement,
-  message: { type: string; [key: string]: any },
+  message: { type: string; [key: string]: unknown },
 ) => {
   if (!iframe.contentWindow) {
     throw new Error("iframe contentWindow is not available");

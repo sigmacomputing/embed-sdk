@@ -31,10 +31,17 @@ import { useWorkbookLoaded, useWorkbookError } from "./wrappers";
  * }
  * ```
  */
-export function useSigmaIframe() {
+export function useSigmaIframe(): {
+  iframeRef: React.RefObject<HTMLIFrameElement>;
+  loading: boolean;
+  error: WorkbookErrorEvent | null;
+  variables: Record<string, string> | undefined;
+} {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [loading, setLoading] = useState(true);
-  const [variables, setVariables] = useState<Record<string, string> | null>();
+  const [variables, setVariables] = useState<
+    Record<string, string> | undefined
+  >(undefined);
   const [error, setError] = useState<WorkbookErrorEvent | null>(null);
   const loadingCallback = useCallback((event: WorkbookLoadedEvent) => {
     setLoading(false);

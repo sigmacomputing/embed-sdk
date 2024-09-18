@@ -8,7 +8,7 @@ import type {
   WorkbookFullScreenEvent,
   WorkbookPageHeightEvent,
   WorkbookChartValueSelectEvent,
-  WorkbookPageSelectedNodeEvent,
+  WorkbookSelectedNodeEvent,
   WorkbookPivotTableCellSelectEvent,
   WorkbookCurrentVariablesEvent,
   WorkbookChartErrorEvent,
@@ -28,7 +28,7 @@ import {
   workbookFullScreenListener,
   workbookPageHeightListener,
   workbookChartValueSelectListener,
-  workbookPageSelectedNodeListener,
+  workbookSelectedNodeListener,
   workbookPivotTableCellSelectListener,
   workbookBookmarkCreateListener,
   workbookCurrentVariablesListener,
@@ -237,16 +237,16 @@ export function useWorkbookPageHeight(
   }, [iframeRef, onPageHeight]);
 }
 
-export function useWorkbookPageSelectedNode(
+export function useWorkbookSelectedNode(
   iframeRef: React.RefObject<HTMLIFrameElement>,
-  onPageSelectedNode: (event: WorkbookPageSelectedNodeEvent) => void,
+  onPageSelectedNode: (event: WorkbookSelectedNodeEvent) => void,
 ) {
   useEffect(() => {
     const listener = (event: MessageEvent) => {
       if (!iframeRef.current) {
         return;
       }
-      workbookPageSelectedNodeListener(
+      workbookSelectedNodeListener(
         event,
         iframeRef.current,
         onPageSelectedNode,

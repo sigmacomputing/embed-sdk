@@ -52,7 +52,7 @@ export const WorkbookFullScreenEventName =
   "workbook:fullscreen:onchange" as const;
 export const WorkbookPageHeightEventName =
   "workbook:pageheight:onchange" as const;
-export const WorkbookPageSelectedNodeEventName =
+export const WorkbookSelectedNodeEventName =
   "workbook:selectednodeid:onchange" as const;
 export const WorkbookPivotTableCellSelectEventName =
   "workbook:pivottable:oncellselect" as const;
@@ -139,8 +139,8 @@ export type WorkbookPageHeightEvent = {
   type: typeof WorkbookPageHeightEventName;
   pageHeight: number;
 };
-export type WorkbookPageSelectedNodeEvent = {
-  type: typeof WorkbookPageSelectedNodeEventName;
+export type WorkbookSelectedNodeEvent = {
+  type: typeof WorkbookSelectedNodeEventName;
   selectedNodeId: string | null;
 };
 

@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://github.com/sigmacomputing/embed-sdk">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/sigma-logo-dark.svg">
+      <img alt="Sigma Logo" src="./assets/sigma-logo-light.svg" width="400px">
+    </picture>
+  </a>
+</p>
+
 # Sigma Embed-SDK for React
 
 Sigma provides several methods to allow users and developers to interact with its systems including web-ui, REST API, Javascript Embed API and an SDK for the React framework.

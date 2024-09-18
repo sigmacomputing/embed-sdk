@@ -13,8 +13,8 @@ import {
   WorkbookPublishedEvent,
   WorkbookFullScreenEvent,
   WorkbookPageHeightEvent,
-  WorkbookPageSelectedNodeEvent,
-  WorkbookPageSelectedNodeEventName,
+  WorkbookSelectedNodeEvent,
+  WorkbookSelectedNodeEventName,
   WorkbookPivotTableCellSelectEvent,
   WorkbookPivotTableCellSelectEventName,
   WorkbookChartValueSelectEvent,
@@ -156,13 +156,13 @@ export const workbookPageHeightListener = (
   }
 };
 
-export const workbookPageSelectedNodeListener = (
+export const workbookSelectedNodeListener = (
   event: MessageEvent,
   iframe: HTMLIFrameElement,
-  onPageSelectedNode: (event: WorkbookPageSelectedNodeEvent) => void,
+  onPageSelectedNode: (event: WorkbookSelectedNodeEvent) => void,
 ) => {
   if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
-    if (event.data.type === WorkbookPageSelectedNodeEventName) {
+    if (event.data.type === WorkbookSelectedNodeEventName) {
       onPageSelectedNode(event.data);
     }
   }

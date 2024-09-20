@@ -17,6 +17,7 @@ import type {
   UrlOnChangeEvent,
   WorkbookIdOnChangeEvent,
   WorkbookBookmarkOnCreateEvent,
+  ActionOutboundEvent,
 } from "@sigmacomputing/embed-sdk";
 import {
   workbookLoadedListener,
@@ -37,6 +38,7 @@ import {
   workbookBookmarkOnChangeListener,
   urlOnChangeListener,
   workbookIdOnChangeListener,
+  actionOutboundListener,
 } from "@sigmacomputing/embed-sdk";
 import { useEffect } from "react";
 
@@ -423,4 +425,29 @@ export function useWorkbookIdOnChange(
     window.addEventListener("message", listener);
     return () => window.removeEventListener("message", listener);
   }, [iframeRef, onIdChange]);
+}
+
+/**
+ *  Listen for an action outbound event, and execute the
+ *  given callback when it occurs.
+ *
+ * You can setup your own outbound action by using the
+ * "Generate JavaScript event" action. For more details,
+ * see [docs](https://help.sigmacomputing.com/docs/intro-to-actions).
+ *
+ */
+export function useActionOutbound(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onActionOutbound: (event: ActionOutboundEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      actionOutboundListener(event, iframeRef.current, onActionOutbound);
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onActionOutbound]);
 }

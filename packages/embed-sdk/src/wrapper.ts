@@ -39,6 +39,8 @@ import {
   WorkbookSharingLinkUpdateEventName,
   WorkbookVariableCurrentEvent,
   WorkbookVariablesCurrentEventName,
+  ActionOutboundEvent,
+  ActionOutboundEventName,
 } from "./types";
 
 const checkEventOrigin = (url: string) => {
@@ -283,6 +285,18 @@ export const workbookIdOnChangeListener = (
   if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
     if (event.data.type === WorkbookIdOnChangeEventName) {
       onWorkbookIdChange(event.data);
+    }
+  }
+};
+
+export const actionOutboundListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onActionOutbound: (event: ActionOutboundEvent) => void,
+) => {
+  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
+    if (event.data.type === ActionOutboundEventName) {
+      onActionOutbound(event.data);
     }
   }
 };

@@ -1,5 +1,16 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.5.0
+
+### Minor Changes
+
+- 0338791: Adds support for action:outbound event type
+
+### Patch Changes
+
+- Updated dependencies [0338791]
+  - @sigmacomputing/embed-sdk@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes

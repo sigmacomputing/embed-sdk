@@ -92,6 +92,8 @@ export const WorkbookVariablesCurrentEventName =
 export const WorkbookSharingLinkUpdateEventName =
   "workbook:sharinglink:update" as const;
 
+export const ActionOutboundEventName = "action:outbound" as const;
+
 export interface WorkbookLoadedEvent {
   type: typeof WorkbookLoadedEventName;
   workbook: {
@@ -209,4 +211,10 @@ export type WorkbookBookmarkCreateEvent = {
   name: string;
   isDefault: boolean;
   isShared: boolean;
+};
+
+export type ActionOutboundEvent = {
+  type: typeof ActionOutboundEventName;
+  name: string;
+  values: Record<string, unknown>;
 };

@@ -1,5 +1,11 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.5.2
+
+### Patch Changes
+
+- 1902649: Fix the peer deps to be more relaxed
+
 ## 0.5.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.5.1
+
+### Patch Changes
+
+- 3801857: Add React 19 to peer dependencies
+
 ## 0.5.0
 
 ### Minor Changes

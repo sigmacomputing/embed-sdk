@@ -1,7 +1,7 @@
 {
   "name": "@sigmacomputing/react-embed-sdk",
   "author": "sigmacomputing",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "React JavaScript SDK to interact with Sigma Computing's Embed API",
   "license": "MIT",
   "repository": {

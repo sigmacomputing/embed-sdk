@@ -19,7 +19,7 @@
     "sigma"
   ],
   "scripts": {
-    "prepublish": "pnpm run build",
+    "prepublish": "turbo run build",
     "build": "tsup",
     "lint": "eslint . --ext .ts",
     "watch": "tsup --watch",

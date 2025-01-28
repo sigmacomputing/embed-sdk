@@ -1,5 +1,19 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.6.0
+
+### Minor Changes
+
+- ab22955: Fix mutation URL to production
+- 1dc9fd1: fix: update package.json to correctly export both cjs and esm types
+
+### Patch Changes
+
+- Updated dependencies [ab22955]
+- Updated dependencies [1dc9fd1]
+- Updated dependencies [08cd832]
+  - @sigmacomputing/embed-sdk@0.6.0
+
 ## 0.5.2
 
 ### Patch Changes

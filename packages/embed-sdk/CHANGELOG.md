@@ -1,5 +1,13 @@
 # @sigmacomputing/embed-sdk
 
+## 0.6.0
+
+### Minor Changes
+
+- ab22955: Fix mutation URL to production
+- 1dc9fd1: fix: update package.json to correctly export both cjs and esm types
+- 08cd832: fix: fixes the variable on change type
+
 ## 0.5.0
 
 ### Minor Changes

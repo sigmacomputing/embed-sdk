@@ -9,6 +9,8 @@ import {
   workbookSharingLinkUpdate,
 } from "@sigmacomputing/embed-sdk";
 
+export { DO_NOT_USE_IN_PRODUCTION_overrideMutationUrl } from "@sigmacomputing/embed-sdk";
+
 export function getWorkbookVariables(
   iframeRef: React.RefObject<HTMLIFrameElement>,
 ) {

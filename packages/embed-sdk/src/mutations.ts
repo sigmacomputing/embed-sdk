@@ -9,6 +9,8 @@ import {
   WorkbookVariablesUpdateEventName,
 } from "./types";
 
+let SIGMA_COMPUTING_URL = "https://app.sigmacomputing.com";
+
 const sendIframeMessage = (
   iframe: HTMLIFrameElement,
   message: { type: string; [key: string]: unknown },
@@ -16,10 +18,18 @@ const sendIframeMessage = (
   if (!iframe.contentWindow) {
     throw new Error("iframe contentWindow is not available");
   }
-  iframe.contentWindow.postMessage(
-    message,
-    "https://staging.sigmacomputing.io",
-  );
+  iframe.contentWindow.postMessage(message, SIGMA_COMPUTING_URL);
+};
+
+/**
+ * DO NOT USE IN PRODUCTION.
+ *
+ * This will override the Sigma Computing URL used for mutations.
+ *
+ * @param url the URL to use instead of the default
+ */
+export const DO_NOT_USE_IN_PRODUCTION_overrideMutationUrl = (url: string) => {
+  SIGMA_COMPUTING_URL = url;
 };
 
 export const workbookBookmarkCreate = (

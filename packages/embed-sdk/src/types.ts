@@ -109,7 +109,9 @@ export interface WorkbookErrorEvent {
 
 export interface WorkbookVariableOnChangeEvent {
   type: typeof WorkbookVariableEventOnChangeName;
-  variables: Record<string, string>;
+  workbook: {
+    variables: Record<string, string>;
+  };
 }
 
 export interface WorkbookVariableCurrentEvent {

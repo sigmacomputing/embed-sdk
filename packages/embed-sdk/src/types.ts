@@ -146,6 +146,7 @@ export type WorkbookPageHeightEvent = {
 export type WorkbookSelectedNodeEvent = {
   type: typeof WorkbookSelectedNodeEventName;
   selectedNodeId: string | null;
+  nodeType: "element" | "page" | null;
 };
 
 export type WorkbookPivotTableCellSelectEvent = {

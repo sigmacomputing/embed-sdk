@@ -60,12 +60,12 @@ export const workbookFullscreenUpdate = (
 
 export const workbookSelectedNodeIdUpdate = (
   iframe: HTMLIFrameElement,
-  nodeId: string,
+  nodeId: string | null,
   nodeType: "element" | "page",
 ) => {
   sendIframeMessage(iframe, {
     type: WorkbookSelectedNodeIdUpdateEventName,
-    nodeId: nodeId,
+    selectedNodeId: nodeId,
     nodeType: nodeType,
   });
 };

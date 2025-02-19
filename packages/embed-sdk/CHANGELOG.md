@@ -1,5 +1,12 @@
 # @sigmacomputing/embed-sdk
 
+## 0.7.0
+
+### Minor Changes
+
+- c5926da: fix: Fix bug with selected node id event using the wrong key
+- 6107856: feat: add various bookmark events
+
 ## 0.6.0
 
 ### Minor Changes

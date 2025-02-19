@@ -41,6 +41,10 @@ import {
   WorkbookVariablesCurrentEventName,
   ActionOutboundEvent,
   ActionOutboundEventName,
+  WorkbookBookmarkOnUpdateEvent,
+  WorkbookBookmarkOnUpdateEventName,
+  WorkbookBookmarkOnDeleteEvent,
+  WorkbookBookmarkOnDeleteEventName,
 } from "./types";
 
 const checkEventOrigin = (url: string) => {
@@ -217,6 +221,43 @@ export const workbookBookmarkCreateListener = (
     }
   }
 };
+
+export const workbookBookmarkOnChangeListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
+) => {
+  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
+    if (event.data.type === WorkbookBookmarkOnChangeEventName) {
+      onBookmarkChange(event.data);
+    }
+  }
+};
+
+export const workbookBookmarkOnUpdateListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onBookmarkUpdate: (event: WorkbookBookmarkOnUpdateEvent) => void,
+) => {
+  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
+    if (event.data.type === WorkbookBookmarkOnUpdateEventName) {
+      onBookmarkUpdate(event.data);
+    }
+  }
+};
+
+export const workbookBookmarkOnDeleteListener = (
+  event: MessageEvent,
+  iframe: HTMLIFrameElement,
+  onBookmarkDelete: (event: WorkbookBookmarkOnDeleteEvent) => void,
+) => {
+  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
+    if (event.data.type === WorkbookBookmarkOnDeleteEventName) {
+      onBookmarkDelete(event.data);
+    }
+  }
+};
+
 export const workbookDataLoadedListener = (
   event: MessageEvent,
   iframe: HTMLIFrameElement,
@@ -249,18 +290,6 @@ export const workbookExploreKeyOnChangeListener = (
   if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
     if (event.data.type === WorkbookExploreKeyOnChangeEventName) {
       onExploreKeyOnChange(event.data);
-    }
-  }
-};
-
-export const workbookBookmarkOnChangeListener = (
-  event: MessageEvent,
-  iframe: HTMLIFrameElement,
-  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
-) => {
-  if (event.source === iframe.contentWindow && checkEventOrigin(event.origin)) {
-    if (event.data.type === WorkbookBookmarkOnChangeEventName) {
-      onBookmarkChange(event.data);
     }
   }
 };

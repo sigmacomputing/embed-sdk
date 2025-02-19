@@ -48,6 +48,26 @@ export const workbookBookmarkUpdate = (iframe: HTMLIFrameElement) => {
   });
 };
 
+export const workbookBookmarkSelect = (
+  iframe: HTMLIFrameElement,
+  bookmarkId?: string,
+) => {
+  sendIframeMessage(iframe, {
+    type: "workbook:bookmark:select",
+    bookmarkId: bookmarkId,
+  });
+};
+
+export const workbookBookmarkDelete = (
+  iframe: HTMLIFrameElement,
+  bookmarkId: string,
+) => {
+  sendIframeMessage(iframe, {
+    type: "workbook:bookmark:delete",
+    bookmarkId: bookmarkId,
+  });
+};
+
 export const workbookFullscreenUpdate = (
   iframe: HTMLIFrameElement,
   nodeId: string | null,

@@ -138,6 +138,30 @@ Listen for a workbook bookmark create event, and execute the given callback when
 workbookBookmarkCreateListener(event: MessageEvent, iframe: HTMLIFrameElement, onBookmarkCreate: (event: WorkbookBookmarkOnCreateEvent) => void)
 ```
 
+#### workbookBookmarkOnChangeListener
+
+Listen for a workbook bookmark change event, and execute the given callback when it occurs.
+
+```typescript
+workbookBookmarkOnChangeListener(event: MessageEvent, iframe: HTMLIFrameElement, onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void)
+```
+
+#### workbookBookmarkOnUpdateListener
+
+Listen for a workbook bookmark update event, and execute the given callback when it occurs.
+
+```typescript
+workbookBookmarkOnUpdateListener(event: MessageEvent, iframe: HTMLIFrameElement, onBookmarkUpdate: (event: WorkbookBookmarkOnUpdateEvent) => void)
+```
+
+#### workbookBookmarkOnDeleteListener
+
+Listen for a workbook bookmark delete event, and execute the given callback when it occurs.
+
+```typescript
+workbookBookmarkOnDeleteListener(event: MessageEvent, iframe: HTMLIFrameElement, onBookmarkDelete: (event: WorkbookBookmarkOnDeleteEvent) => void)
+```
+
 #### workbookDataLoadedListener
 
 Listen for a workbook data loaded event, and execute the given callback when it occurs.
@@ -160,14 +184,6 @@ Listen for a workbook explore key change event, and execute the given callback w
 
 ```typescript
 workbookExploreKeyOnChangeListener(event: MessageEvent, iframe: HTMLIFrameElement, onExploreKeyOnChange: (event: WorkbookExploreKeyOnChangeEvent) => void)
-```
-
-#### workbookBookmarkOnChangeListener
-
-Listen for a workbook bookmark change event, and execute the given callback when it occurs.
-
-```typescript
-workbookBookmarkOnChangeListener(event: MessageEvent, iframe: HTMLIFrameElement, onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void)
 ```
 
 #### urlOnChangeListener
@@ -228,6 +244,22 @@ Send a message to the embed to update the current bookmark.
 
 ```typescript
 workbookBookmarkUpdate(iframe: HTMLIFrameElement)
+```
+
+#### workbookBookmarkDelete
+
+Send a message to the embed to delete the given bookmark.
+
+```typescript
+workbookBookmarkDelete(iframe: HTMLIFrameElement, bookmarkId: string)
+```
+
+#### workbookBookmarkSelect
+
+Send a message to the embed to select the given bookmark. If no bookmarkId is provided, the current bookmark will be deselected.
+
+```typescript
+workbookBookmarkSelect(iframe: HTMLIFrameElement, bookmarkId?: string)
 ```
 
 #### workbookFullscreenUpdate

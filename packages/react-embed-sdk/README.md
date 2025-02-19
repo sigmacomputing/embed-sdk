@@ -226,6 +226,30 @@ Listen for a workbook bookmark create event, and execute the given callback when
 useWorkbookBookmarkOnCreate(iframeRef: React.RefObject<HTMLIFrameElement>, onBookmarkCreate: (event: WorkbookBookmarkOnCreateEvent) => void)
 ```
 
+#### useWorkbookBookmarkOnChange
+
+Listen for a workbook bookmark change event, and execute the given callback when it occurs.
+
+```typescript
+useWorkbookBookmarkOnChange(iframeRef: React.RefObject<HTMLIFrameElement>, onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void)
+```
+
+#### useWorkbookBookmarkOnUpdate
+
+Listen for a workbook bookmark update event, and execute the given callback when it occurs.
+
+```typescript
+useWorkbookBookmarkOnUpdate(iframeRef: React.RefObject<HTMLIFrameElement>, onBookmarkUpdate: (event: WorkbookBookmarkOnUpdateEvent) => void)
+```
+
+#### useWorkbookBookmarkOnDelete
+
+Listen for a workbook bookmark delete event, and execute the given callback when it occurs.
+
+```typescript
+useWorkbookBookmarkOnDelete(iframeRef: React.RefObject<HTMLIFrameElement>, onBookmarkDelete: (event: WorkbookBookmarkOnDeleteEvent) => void)
+```
+
 #### useWorkbookChartError
 
 Listen for a workbook chart error event, and execute the given callback when it occurs.
@@ -240,14 +264,6 @@ Listen for a workbook explore key change event, and execute the given callback w
 
 ```typescript
 useWorkbookExploreKeyOnChange(iframeRef: React.RefObject<HTMLIFrameElement>, onExploreKeyOnChange: (event: WorkbookExploreKeyOnChangeEvent) => void)
-```
-
-#### useWorkbookBookmarkOnChange
-
-Listen for a workbook bookmark change event, and execute the given callback when it occurs.
-
-```typescript
-useWorkbookBookmarkOnChange(iframeRef: React.RefObject<HTMLIFrameElement>, onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void)
 ```
 
 #### useUrlOnChange
@@ -300,6 +316,22 @@ Send a message to the embed to update the current bookmark.
 
 ```typescript
 updateWorkbookBookmark(iframeRef: React.RefObject<HTMLIFrameElement>)
+```
+
+#### deleteWorkbookBookmark
+
+Send a message to the embed to delete the given bookmark.
+
+```typescript
+deleteWorkbookBookmark(iframeRef: React.RefObject<HTMLIFrameElement>, bookmarkId: string)
+```
+
+#### selectWorkbookBookmark
+
+Send a message to the embed to select the given bookmark. If no bookmarkId is provided, the current bookmark will be deselected.
+
+```typescript
+selectWorkbookBookmark(iframeRef: React.RefObject<HTMLIFrameElement>, bookmarkId?: string)
 ```
 
 #### updateWorkbookFullscreen

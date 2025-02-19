@@ -1,5 +1,17 @@
 # @sigmacomputing/react-embed-sdk
 
+## 0.7.0
+
+### Minor Changes
+
+- 6107856: feat: add various bookmark events
+
+### Patch Changes
+
+- Updated dependencies [c5926da]
+- Updated dependencies [6107856]
+  - @sigmacomputing/embed-sdk@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes

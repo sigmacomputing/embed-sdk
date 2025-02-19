@@ -18,6 +18,8 @@ import type {
   WorkbookIdOnChangeEvent,
   WorkbookBookmarkOnCreateEvent,
   ActionOutboundEvent,
+  WorkbookBookmarkOnUpdateEvent,
+  WorkbookBookmarkOnDeleteEvent,
 } from "@sigmacomputing/embed-sdk";
 import {
   workbookLoadedListener,
@@ -39,6 +41,8 @@ import {
   urlOnChangeListener,
   workbookIdOnChangeListener,
   actionOutboundListener,
+  workbookBookmarkOnUpdateListener,
+  workbookBookmarkOnDeleteListener,
 } from "@sigmacomputing/embed-sdk";
 import { useEffect } from "react";
 
@@ -339,6 +343,66 @@ export function useWorkbookBookmarkOnCreate(
   }, [iframeRef, onBookmarkCreate]);
 }
 
+export function useWorkbookBookmarkOnChange(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookBookmarkOnChangeListener(
+        event,
+        iframeRef.current,
+        onBookmarkChange,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onBookmarkChange]);
+}
+
+export function useWorkbookBookmarkOnUpdate(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onBookmarkUpdate: (event: WorkbookBookmarkOnUpdateEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookBookmarkOnUpdateListener(
+        event,
+        iframeRef.current,
+        onBookmarkUpdate,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onBookmarkUpdate]);
+}
+
+export function useWorkbookBookmarkOnDelete(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  onBookmarkDelete: (event: WorkbookBookmarkOnDeleteEvent) => void,
+) {
+  useEffect(() => {
+    const listener = (event: MessageEvent) => {
+      if (!iframeRef.current) {
+        return;
+      }
+      workbookBookmarkOnDeleteListener(
+        event,
+        iframeRef.current,
+        onBookmarkDelete,
+      );
+    };
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, [iframeRef, onBookmarkDelete]);
+}
+
 export function useWorkbookChartError(
   iframeRef: React.RefObject<HTMLIFrameElement>,
   onChartError: (event: WorkbookChartErrorEvent) => void,
@@ -373,26 +437,6 @@ export function useWorkbookExploreKeyOnChange(
     window.addEventListener("message", listener);
     return () => window.removeEventListener("message", listener);
   }, [iframeRef, onExploreKeyChange]);
-}
-
-export function useWorkbookBookmarkOnChange(
-  iframeRef: React.RefObject<HTMLIFrameElement>,
-  onBookmarkChange: (event: WorkbookBookmarkOnChangeEvent) => void,
-) {
-  useEffect(() => {
-    const listener = (event: MessageEvent) => {
-      if (!iframeRef.current) {
-        return;
-      }
-      workbookBookmarkOnChangeListener(
-        event,
-        iframeRef.current,
-        onBookmarkChange,
-      );
-    };
-    window.addEventListener("message", listener);
-    return () => window.removeEventListener("message", listener);
-  }, [iframeRef, onBookmarkChange]);
 }
 
 export function useUrlOnChange(

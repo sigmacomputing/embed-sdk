@@ -66,14 +66,28 @@ export const WorkbookDataLoadedEventName = "workbook:dataloaded" as const;
 export const WorkbookChartErrorEventName = "workbook:chart:error" as const;
 export const WorkbookExploreKeyOnChangeEventName =
   "workbook:exploreKey:onchange" as const;
-export const WorkbookBookmarkOnChangeEventName =
-  "workbook:bookmark:onchange" as const;
+
 export const UrlOnChangeEventName = "url:onchange" as const;
 export const WorkbookIdOnChangeEventName = "workbook:id:onchange" as const;
+
 export const WorkbookBookmarkCreateEventName =
   "workbook:bookmark:create" as const;
 export const WorkbookBookmarkUpdateEventName =
   "workbook:bookmark:update" as const;
+export const WorkbookBookmarkDeleteEventName =
+  "workbook:bookmark:delete" as const;
+export const WorkbookBookmarkSelectEventName =
+  "workbook:bookmark:select" as const;
+
+export const WorkbookBookmarkOnChangeEventName =
+  "workbook:bookmark:onchange" as const;
+export const WorkbookBookmarkOnCreateEvent =
+  "workbook:bookmark:oncreate" as const;
+export const WorkbookBookmarkOnDeleteEventName =
+  "workbook:bookmark:ondelete" as const;
+export const WorkbookBookmarkOnUpdateEventName =
+  "workbook:bookmark:onupdate" as const;
+
 export const WorkbookFullscreenUpdateEventName =
   "workbook:fullscreen:update" as const;
 
@@ -168,14 +182,6 @@ export type WorkbookCurrentVariablesEvent = {
   variables: Record<string, string>;
 };
 
-export type WorkbookBookmarkOnCreateEvent = {
-  type: typeof WorkbookBookmarkOnCreateEventName;
-  bookmarkName: string;
-  workbookId: string;
-  versionTagName: string | null;
-  bookmarkId: string;
-};
-
 export type WorkbookDataLoadedEvent = {
   type: typeof WorkbookDataLoadedEventName;
 };
@@ -192,12 +198,44 @@ export type WorkbookExploreKeyOnChangeEvent = {
   exploreKey: string | null;
 };
 
+export type WorkbookBookmarkOnCreateEvent = {
+  type: typeof WorkbookBookmarkOnCreateEventName;
+  bookmarkName: string;
+  workbookId: string;
+  versionTagName: string | null;
+  bookmarkId: string;
+};
+
 export type WorkbookBookmarkOnChangeEvent = {
   type: typeof WorkbookBookmarkOnChangeEventName;
   bookmarkName: string | null;
   workbookId: string;
   versionTagName: string | null;
   bookmarkId: string | null;
+};
+
+export type WorkbookBookmarkOnUpdateEvent = {
+  type: typeof WorkbookBookmarkOnUpdateEventName;
+  bookmarkName?: string;
+  workbookId: string;
+  versionTagName: string | null;
+  bookmarkId: string;
+  isDefault?: boolean;
+  isShared?: boolean;
+};
+
+export type WorkbookBookmarkOnDeleteEvent = {
+  type: typeof WorkbookBookmarkOnDeleteEventName;
+  bookmarkName: string;
+  workbookId: string;
+  versionTagName: string | null;
+  bookmarkId: string;
+};
+
+export type WorkbookBookmarkCreateEvent = {
+  name: string;
+  isDefault: boolean;
+  isShared: boolean;
 };
 
 export type UrlOnChangeEvent = {
@@ -208,12 +246,6 @@ export type UrlOnChangeEvent = {
 export type WorkbookIdOnChangeEvent = {
   type: typeof WorkbookIdOnChangeEventName;
   id: string;
-};
-
-export type WorkbookBookmarkCreateEvent = {
-  name: string;
-  isDefault: boolean;
-  isShared: boolean;
 };
 
 export type ActionOutboundEvent = {

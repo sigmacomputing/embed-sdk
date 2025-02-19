@@ -7,6 +7,8 @@ import {
   workbookSelectedNodeIdUpdate,
   WorkbookBookmarkCreateEvent,
   workbookSharingLinkUpdate,
+  workbookBookmarkDelete,
+  workbookBookmarkSelect,
 } from "@sigmacomputing/embed-sdk";
 
 export { DO_NOT_USE_IN_PRODUCTION_overrideMutationUrl } from "@sigmacomputing/embed-sdk";
@@ -47,6 +49,26 @@ export function updateWorkbookBookmark(
     throw new Error("iframe is not available");
   }
   workbookBookmarkUpdate(iframeRef.current);
+}
+
+export function deleteWorkbookBookmark(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  bookmarkId: string,
+) {
+  if (!iframeRef.current) {
+    throw new Error("iframe is not available");
+  }
+  workbookBookmarkDelete(iframeRef.current, bookmarkId);
+}
+
+export function selectWorkbookBookmark(
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+  bookmarkId?: string,
+) {
+  if (!iframeRef.current) {
+    throw new Error("iframe is not available");
+  }
+  workbookBookmarkSelect(iframeRef.current, bookmarkId);
 }
 
 export function updateWorkbookFullscreen(

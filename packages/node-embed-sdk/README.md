@@ -34,14 +34,14 @@ The SDK provides utilities for encrypting and decrypting OAuth tokens using AES-
 import { encrypt, decrypt } from '@sigmacomputing/node-embed-sdk';
 
 // Encrypt an OAuth token
-const encryptedToken = encrypt({
-  embedSecret: 'your-embed-secret',
-  oauthToken: 'your-oauth-token'
-});
+const encryptedToken = encrypt(
+  'your-embed-secret',
+  'your-oauth-token'
+);
 
 // Decrypt an encrypted token
-const decryptedToken = decrypt({
-  embedSecret: 'your-embed-secret',
-  encryptedToken: encryptedToken
-});
+const decryptedToken = decrypt(
+  'your-embed-secret',
+  encryptedToken
+);
 ```

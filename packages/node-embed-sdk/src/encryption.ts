@@ -421,18 +421,14 @@ function decodeEncryptionOutput(
 /**
  * Encrypt the OAuth token using the embed secret.
  *
- * @param param0
- * @param param0.embedSecret the embed secret to use for encryption
- * @param param0.oauthToken the OAuth token to encrypt
+ * @param embedSecret the embed secret to use for encryption
+ * @param oauthToken the OAuth token to encrypt
  * @returns the encrypted token, encoded as a string
  */
-export function encrypt({
-  embedSecret,
-  oauthToken,
-}: {
-  embedSecret: string;
-  oauthToken: string;
-}): string {
+export function encrypt(
+  embedSecret: string,
+  oauthToken: string,
+): string {
   const passphrase = asPassphrase(Buffer.from(embedSecret, 'utf8'));
   const plaintext = asPlaintext(Buffer.from(oauthToken, 'utf8'));
   const encryptionOutput = encryptWithPassphrase(passphrase, plaintext);
@@ -442,18 +438,14 @@ export function encrypt({
 /**
  * Decrypt the OAuth token using the embed secret.
  *
- * @param param0
- * @param param0.embedSecret the embed secret to use for decryption
- * @param param0.encryptedToken the encrypted OAuth token to decrypt
+ * @param embedSecret the embed secret to use for decryption
+ * @param encryptedToken the encrypted OAuth token to decrypt
  * @returns the decrypted token
  */
-export function decrypt({
-  embedSecret,
-  encryptedToken,
-}: {
-  embedSecret: string;
-  encryptedToken: string;
-}): string {
+export function decrypt(
+  embedSecret: string,
+  encryptedToken: string,
+): string {
   const passphrase = asPassphrase(Buffer.from(embedSecret, 'utf8'));
   const encryptionOutput = decodeEncryptionOutput(
     asEncodedPassphraseEncryptionOutput(encryptedToken),

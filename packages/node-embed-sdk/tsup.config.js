@@ -9,7 +9,4 @@ export default defineConfig({
   dts: true,
   clean: true,
   format: ["esm", "cjs"],
-  loader: {
-    ".js": "jsx",
-  },
 });

@@ -44,6 +44,7 @@
   ],
   "devDependencies": {
     "@sigmacomputing/eslint-config": "workspace:*",
-    "@sigmacomputing/typescript-config": "workspace:*"
+    "@sigmacomputing/typescript-config": "workspace:*",
+    "@types/node": "^20.17.16"
   }
 }

@@ -111,9 +111,6 @@ importers:
       '@sigmacomputing/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript-config
-      '@types/node':
-        specifier: ^20.17.16
-        version: 20.17.16
 
   packages/node-embed-sdk:
     devDependencies:

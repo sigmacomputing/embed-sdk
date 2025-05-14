@@ -1,6 +1,6 @@
 # Sigma Node.js Embed SDK
 
-This package provides Node.js utilities for working with Sigma Computing's Embed API, with a focus on server-side functionality like token encryption and decryption.
+This package provides Node.js utilities for working with Sigma Computing's Embed API.
 
 ## Getting Started
 

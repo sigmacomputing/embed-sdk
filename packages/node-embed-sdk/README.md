@@ -45,14 +45,3 @@ const decryptedToken = decrypt({
   encryptedToken: encryptedToken
 });
 ```
-
-## Security
-
-This package implements industry-standard encryption practices:
-
-- PBKDF2 with SHA-256, 600,000 iterations, and a 128-bit salt for key derivation
-- AES-256-GCM for encryption with a 96-bit IV and a 128-bit authentication tag
-
-## Requirements
-
-- Node.js 18 or higher

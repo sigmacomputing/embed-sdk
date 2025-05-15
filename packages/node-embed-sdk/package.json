@@ -1,7 +1,7 @@
 {
   "name": "@sigmacomputing/node-embed-sdk",
   "author": "sigmacomputing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node.js SDK for Sigma Computing with encryption/decryption utilities",
   "license": "MIT",
   "repository": {

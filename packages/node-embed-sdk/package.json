@@ -1,0 +1,54 @@
+{
+  "name": "@sigmacomputing/node-embed-sdk",
+  "author": "sigmacomputing",
+  "version": "0.1.0",
+  "description": "Node.js SDK for Sigma Computing with encryption/decryption utilities",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sigmacomputing/embed-sdk.git",
+    "directory": "packages/node-embed-sdk"
+  },
+  "homepage": "https://sigmacomputing.com",
+  "bugs": {
+    "url": "https://github.com/sigmacomputing/embed-sdk/issues"
+  },
+  "keywords": [
+    "embed",
+    "sdk",
+    "sigma",
+    "node"
+  ],
+  "scripts": {
+    "prepublish": "turbo run build",
+    "build": "tsup",
+    "lint": "eslint . --ext .ts",
+    "watch": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
+    "require": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@sigmacomputing/eslint-config": "workspace:*",
+    "@sigmacomputing/typescript-config": "workspace:*",
+    "@types/node": "^20.17.16"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

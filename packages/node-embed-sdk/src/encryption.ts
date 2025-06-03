@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import crypto from "node:crypto";
 
 /*
  * Configuration Constants
@@ -16,7 +16,7 @@ import crypto from 'node:crypto';
  * The key length is 256 bits since we are using AES-256-GCM.
  */
 const PBKDF2_HMAC_SHA256_KEY_DERIVATION = {
-  DIGEST: 'sha256',
+  DIGEST: "sha256",
   ITERATIONS: 600_000,
   KEY_LENGTH_BYTES: 32, // 256 bits
   SALT_LENGTH_BYTES: 16, // 128 bits
@@ -30,7 +30,7 @@ const PBKDF2_HMAC_SHA256_KEY_DERIVATION = {
  * recommendations.
  */
 const AES_256_GCM_ENCRYPTION = {
-  ALGORITHM: 'aes-256-gcm',
+  ALGORITHM: "aes-256-gcm",
   IV_LENGTH_BYTES: 12, // 96 bits
   TAG_LENGTH_BYTES: 16, // 128 bits
 } as const;
@@ -157,12 +157,12 @@ function isPassphraseEncryptionOutput(
   value: unknown,
 ): value is PassphraseEncryptionOutput_t {
   // The input should be a non-null object
-  if (!(value && typeof value === 'object')) return false;
+  if (!(value && typeof value === "object")) return false;
   // The object should have these properties
-  if (!('salt' in value)) return false;
-  if (!('iv' in value)) return false;
-  if (!('tag' in value)) return false;
-  if (!('ciphertext' in value)) return false;
+  if (!("salt" in value)) return false;
+  if (!("iv" in value)) return false;
+  if (!("tag" in value)) return false;
+  if (!("ciphertext" in value)) return false;
   // The properties should be the correct type
   if (!isSalt(value.salt)) return false;
   if (!isIV(value.iv)) return false;
@@ -174,14 +174,14 @@ function isPassphraseEncryptionOutput(
 function isEncodedPassphraseEncryptionOutput(
   value: unknown,
 ): value is EncodedPassphraseEncryptionOutput_t {
-  if (typeof value !== 'string') return false;
-  const parts = value.split('.');
+  if (typeof value !== "string") return false;
+  const parts = value.split(".");
   if (parts.length !== 4) return false;
   const [salt, iv, tag, ciphertext] = parts;
-  if (!isSalt(Buffer.from(salt, 'base64'))) return false;
-  if (!isIV(Buffer.from(iv, 'base64'))) return false;
-  if (!isTag(Buffer.from(tag, 'base64'))) return false;
-  if (!isCiphertext(Buffer.from(ciphertext, 'base64'))) return false;
+  if (!isSalt(Buffer.from(salt, "base64"))) return false;
+  if (!isIV(Buffer.from(iv, "base64"))) return false;
+  if (!isTag(Buffer.from(tag, "base64"))) return false;
+  if (!isCiphertext(Buffer.from(ciphertext, "base64"))) return false;
   return true;
 }
 
@@ -191,49 +191,49 @@ function isEncodedPassphraseEncryptionOutput(
 
 function asPassphrase(value: unknown): Passphrase_t {
   if (!isPassphrase(value)) {
-    throw new Error('Invalid passphrase.');
+    throw new Error("Invalid passphrase.");
   }
   return value;
 }
 
 function asSalt(value: unknown): Salt_t {
   if (!isSalt(value)) {
-    throw new Error('Invalid salt.');
+    throw new Error("Invalid salt.");
   }
   return value;
 }
 
 function asTag(value: unknown): Tag_t {
   if (!isTag(value)) {
-    throw new Error('Invalid tag.');
+    throw new Error("Invalid tag.");
   }
   return value;
 }
 
 function asIV(value: unknown): IV_t {
   if (!isIV(value)) {
-    throw new Error('Invalid IV.');
+    throw new Error("Invalid IV.");
   }
   return value;
 }
 
 function asCiphertext(value: unknown): Ciphertext_t {
   if (!isCiphertext(value)) {
-    throw new Error('Invalid ciphertext.');
+    throw new Error("Invalid ciphertext.");
   }
   return value;
 }
 
 function asPlaintext(value: unknown): Plaintext_t {
   if (!isPlaintext(value)) {
-    throw new Error('Invalid plaintext.');
+    throw new Error("Invalid plaintext.");
   }
   return value;
 }
 
 function asSymmetricKey(value: unknown): SymmetricKey_t {
   if (!isSymmetricKey(value)) {
-    throw new Error('Invalid symmetric key.');
+    throw new Error("Invalid symmetric key.");
   }
   return value;
 }
@@ -242,7 +242,7 @@ function asPassphraseEncryptionOutput(
   value: unknown,
 ): PassphraseEncryptionOutput_t {
   if (!isPassphraseEncryptionOutput(value)) {
-    throw new Error('Invalid encryption output.');
+    throw new Error("Invalid encryption output.");
   }
   return value;
 }
@@ -257,7 +257,7 @@ function asEncodedPassphraseEncryptionOutput(
   value: unknown,
 ): EncodedPassphraseEncryptionOutput_t {
   if (!isEncodedPassphraseEncryptionOutput(value)) {
-    throw new Error('Invalid encoded encryption output.');
+    throw new Error("Invalid encoded encryption output.");
   }
   return value;
 }
@@ -373,25 +373,25 @@ function encodeEncryptedToken(
   tag: Tag_t,
   ciphertext: Ciphertext_t,
 ): string {
-  const encodedSalt = salt.toString('base64');
-  const encodedIV = iv.toString('base64');
-  const encodedTag = tag.toString('base64');
-  const encodedCiphertext = ciphertext.toString('base64');
+  const encodedSalt = salt.toString("base64");
+  const encodedIV = iv.toString("base64");
+  const encodedTag = tag.toString("base64");
+  const encodedCiphertext = ciphertext.toString("base64");
   return `${encodedSalt}.${encodedIV}.${encodedTag}.${encodedCiphertext}`;
 }
 
 function decodeEncryptedToken(
   encodedToken: EncodedPassphraseEncryptionOutput_t,
 ): PassphraseEncryptionOutput_t {
-  const parts = encodedToken.split('.');
+  const parts = encodedToken.split(".");
   if (parts.length !== 4) {
-    throw new Error('Expected 4 components in encoded token.');
+    throw new Error("Expected 4 components in encoded token.");
   }
   const [encodedSalt, encodedIV, encodedTag, encodedCiphertext] = parts;
-  const salt = asSalt(Buffer.from(encodedSalt, 'base64'));
-  const iv = asIV(Buffer.from(encodedIV, 'base64'));
-  const tag = asTag(Buffer.from(encodedTag, 'base64'));
-  const ciphertext = asCiphertext(Buffer.from(encodedCiphertext, 'base64'));
+  const salt = asSalt(Buffer.from(encodedSalt, "base64"));
+  const iv = asIV(Buffer.from(encodedIV, "base64"));
+  const tag = asTag(Buffer.from(encodedTag, "base64"));
+  const ciphertext = asCiphertext(Buffer.from(encodedCiphertext, "base64"));
   return { salt, iv, tag, ciphertext };
 }
 
@@ -425,12 +425,9 @@ function decodeEncryptionOutput(
  * @param oauthToken the OAuth token to encrypt
  * @returns the encrypted token, encoded as a string
  */
-export function encrypt(
-  embedSecret: string,
-  oauthToken: string,
-): string {
-  const passphrase = asPassphrase(Buffer.from(embedSecret, 'utf8'));
-  const plaintext = asPlaintext(Buffer.from(oauthToken, 'utf8'));
+export function encrypt(embedSecret: string, oauthToken: string): string {
+  const passphrase = asPassphrase(Buffer.from(embedSecret, "utf8"));
+  const plaintext = asPlaintext(Buffer.from(oauthToken, "utf8"));
   const encryptionOutput = encryptWithPassphrase(passphrase, plaintext);
   return encodeEncryptionOutput(encryptionOutput);
 }
@@ -442,11 +439,8 @@ export function encrypt(
  * @param encryptedToken the encrypted OAuth token to decrypt
  * @returns the decrypted token
  */
-export function decrypt(
-  embedSecret: string,
-  encryptedToken: string,
-): string {
-  const passphrase = asPassphrase(Buffer.from(embedSecret, 'utf8'));
+export function decrypt(embedSecret: string, encryptedToken: string): string {
+  const passphrase = asPassphrase(Buffer.from(embedSecret, "utf8"));
   const encryptionOutput = decodeEncryptionOutput(
     asEncodedPassphraseEncryptionOutput(encryptedToken),
   );
@@ -457,5 +451,11 @@ export function decrypt(
     encryptionOutput.tag,
     encryptionOutput.ciphertext,
   );
-  return plaintext.toString('utf8');
+  return plaintext.toString("utf8");
 }
+
+export const _testExports = {
+  PBKDF2_HMAC_SHA256_KEY_DERIVATION,
+  AES_256_GCM_ENCRYPTION,
+  asEncodedPassphraseEncryptionOutput,
+};

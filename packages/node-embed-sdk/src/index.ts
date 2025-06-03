@@ -1,1 +1,1 @@
-export * from './encryption';
+export { encrypt, decrypt } from "./encryption";

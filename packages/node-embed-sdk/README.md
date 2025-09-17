@@ -28,7 +28,13 @@ pnpm add @sigmacomputing/node-embed-sdk
 
 ### Token Encryption and Decryption
 
-The SDK provides utilities for encrypting and decrypting OAuth tokens using AES-256-GCM encryption:
+The SDK provides utilities for encrypting and decrypting OAuth tokens using AES-256-GCM encryption.
+
+See our documentation on [embedding with JWTS](https://help.sigmacomputing.com/docs/create-an-embed-api-with-json-web-tokens) for more information.
+
+Sigma expects you to encrypt OAuth tokens using the same embed secret used to sign the embed.
+
+#### Example Usage
 
 ```typescript
 import { encrypt, decrypt } from '@sigmacomputing/node-embed-sdk';

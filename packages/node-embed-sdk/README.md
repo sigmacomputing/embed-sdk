@@ -36,18 +36,26 @@ Sigma expects you to encrypt OAuth tokens using the same embed secret used to si
 
 #### Example Usage
 
+##### Asynchronous
+
 ```typescript
-import { encrypt, decrypt } from '@sigmacomputing/node-embed-sdk';
+import { encrypt, decrypt } from "@sigmacomputing/node-embed-sdk/promises";
 
 // Encrypt an OAuth token
-const encryptedToken = encrypt(
-  'your-embed-secret',
-  'your-oauth-token'
-);
+const encryptedToken = await encrypt("your-embed-secret", "your-oauth-token");
 
 // Decrypt an encrypted token
-const decryptedToken = decrypt(
-  'your-embed-secret',
-  encryptedToken
-);
+const decryptedToken = await decrypt("your-embed-secret", encryptedToken);
+```
+
+##### Synchronous
+
+```typescript
+import { encrypt, decrypt } from "@sigmacomputing/node-embed-sdk";
+
+// Encrypt an OAuth token
+const encryptedToken = encrypt("your-embed-secret", "your-oauth-token");
+
+// Decrypt an encrypted token
+const decryptedToken = decrypt("your-embed-secret", encryptedToken);
 ```

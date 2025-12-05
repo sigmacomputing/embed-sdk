@@ -1,9 +1,10 @@
 {
-  "name": "@sigmacomputing/node-embed-sdk",
+  "name": "@sigmacomputing/test-pack",
   "author": "sigmacomputing",
   "version": "0.2.0",
-  "description": "Node.js SDK for Sigma Computing with encryption/decryption utilities",
+  "description": "Package to test the imports entrypoints of the node-embed-sdk package.",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/sigmacomputing/embed-sdk.git",
@@ -20,34 +21,15 @@
     "node"
   ],
   "scripts": {
-    "prepublish": "turbo run build",
-    "build": "tsup",
     "lint": "eslint . --ext .ts",
-    "watch": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "test": "jest"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./promises": {
-      "types": "./dist/promises.d.ts",
-      "import": "./dist/promises.mjs",
-      "require": "./dist/promises.js"
-    }
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
-    "@sigmacomputing/eslint-config": "workspace:*",
-    "@sigmacomputing/typescript-config": "workspace:*",
+    "@sigmacomputing/node-embed-sdk": "workspace:*",
     "@swc/core": "^1.11.29",
     "@swc/jest": "^0.2.38",
     "@types/jest": "^30.0.0",

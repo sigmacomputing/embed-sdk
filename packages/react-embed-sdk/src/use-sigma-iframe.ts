@@ -22,7 +22,7 @@ import { useWorkbookLoaded, useWorkbookError } from "./wrappers";
  *     {loading && <p>Loading...</p>}
  *     {error && <p>Error: {error.message}</p>}
  *     <iframe
- *       className={loading || error ? "hidden" : "show"}
+ *       style={{ opacity: loading || error ? 0 : 1, pointerEvents: loading || error ? "none" : "auto" }}
  *       ref={iframeRef}
  *       src="https://app.sigmacomputing.com/embed"
  *     />

@@ -5,12 +5,15 @@ export default function BasicExample({ src }: { src: string }) {
   const { iframeRef, loading, error } = useSigmaIframe();
   return (
     <>
-      <p className={loading ? "show" : "hidden"}> Loading...</p>
-      <p className={error ? "show" : "hidden"}> Error loading iframe</p>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error loading iframe</p>}
       <iframe
         src={src}
         ref={iframeRef}
-        className={loading || error ? "hidden" : "show"}
+        style={{
+          opacity: loading || error ? 0 : 1,
+          pointerEvents: loading || error ? "none" : "auto",
+        }}
         width={"100%"}
         height={"100%"}
       />

@@ -1,5 +1,11 @@
 # @sigmacomputing/embed-sdk
 
+## 0.7.1
+
+### Patch Changes
+
+- 9b22f32: Update documentation to improve performance during loading.
+
 ## 0.7.0
 
 ### Minor Changes

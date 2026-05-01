@@ -10,10 +10,7 @@ export default function BasicExample({ src }: { src: string }) {
       <iframe
         src={src}
         ref={iframeRef}
-        style={{
-          opacity: loading || error ? 0 : 1,
-          pointerEvents: loading || error ? "none" : "auto",
-        }}
+        className={loading || error ? "opacity-0 pointer-events-none" : ""}
         width={"100%"}
         height={"100%"}
       />

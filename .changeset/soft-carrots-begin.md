@@ -1,6 +1,5 @@
 ---
 "@sigmacomputing/embed-sdk": patch
-"@sigmacomputing/node-embed-sdk": patch
 "@sigmacomputing/react-embed-sdk": patch
 ---
 

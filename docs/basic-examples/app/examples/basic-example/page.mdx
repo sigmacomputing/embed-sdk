@@ -7,12 +7,12 @@ function BasicExample({ src }: { src: string }) {
   const { iframeRef, loading, error } = useSigmaIframe(); // [!code highlight]
   return (
     <>
-      <p className={loading ? "show" : "hidden"}> Loading...</p> // [!code highlight]
-      <p className={error ? "show" : "hidden"}> Error loading iframe</p> // [!code highlight]
+      {loading && <p>Loading...</p>} // [!code highlight]
+      {error && <p>Error loading iframe</p>} // [!code highlight]
       <iframe
         src={src}
         ref={iframeRef} // [!code highlight]
-        className={loading || error ? "hidden" : "show"} // [!code highlight]
+        className={loading || error ? "opacity-0 pointer-events-none" : ""} // [!code highlight]
         width={"100%"}
         height={"100%"}
       />

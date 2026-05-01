@@ -58,7 +58,7 @@ import { useEffect } from "react";
  *   useWorkbookLoaded(iframeRef, loadingCallback);
  *   return (
  *    <iframe
- *      className{loading ? "hidden" : "show"}
+ *      className={loading ? "opacity-0 pointer-events-none" : ""}
  *      ref={iframeRef}
  *      src="https://app.sigmacomputing.com/embed"
  *    />

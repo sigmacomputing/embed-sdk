@@ -49,7 +49,7 @@ function MyEmbed() {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       <iframe
-        className={loading || error ? "hidden" : "show"}
+        className={loading || error ? "opacity-0 pointer-events-none" : ""}
         ref={iframeRef}
         {/* The embed url to load */}
         src="https://app.sigmacomputing.com/embed"
